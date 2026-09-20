@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "repositories": {
+    "algorithms": {
+      "repositoryUrl": "https://github.com/koljaPl/algorithms",
+      "stars": 0,
+      "primaryLanguage": "C++",
+      "updatedAt": "2026-09-19T10:10:34Z"
+    },
+    "machine-learning": {
+      "repositoryUrl": "https://github.com/koljaPl/ml-problems",
+      "stars": 0,
+      "primaryLanguage": "Jupyter Notebook",
+      "updatedAt": "2026-09-01T13:34:26Z"
+    },
+    "physics-engine": {
+      "repositoryUrl": "https://github.com/koljaPl/2-squares-collapse",
+      "stars": 1,
+      "primaryLanguage": "JavaScript",
+      "updatedAt": "2026-04-29T15:39:06Z"
+    },
+    "tppl": {
+      "repositoryUrl": "https://github.com/koljaPl/pseudo-programming-language",
+      "stars": 7,
+      "primaryLanguage": "C++",
+      "updatedAt": "2026-09-05T23:48:51Z"
+    }
+  }
+}

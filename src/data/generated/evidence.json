@@ -1,0 +1,620 @@
+{
+  "version": 1,
+  "repositories": {
+    "koljaPl/2-squares-collapse": {
+      "revision": "dd6d1497814f365d742e5a30a4626c0b315d077c",
+      "defaultBranch": "main",
+      "counter": "cloc 2.10",
+      "commits": {
+        "value": 36,
+        "observedAt": "2026-09-17T05:28:17.429Z",
+        "scope": "All commits reachable from this default-branch revision, including merges and all authors."
+      },
+      "code": {
+        "value": 1690,
+        "observedAt": "2026-09-17T05:28:17.429Z",
+        "scope": "Physical source lines counted in each physical file, including native Astro components, tests, examples and parsed notebook code cells; excluding blanks, comments, dependencies, generated files, documentation and notebook outputs."
+      }
+    },
+    "koljaPl/AI-Document-Intake-Automation": {
+      "revision": "cc1a5520b75ff7a1bf77cc5a4d1ccc420c203a7b",
+      "defaultBranch": "main",
+      "counter": "cloc 2.10",
+      "commits": {
+        "value": 8,
+        "observedAt": "2026-09-17T05:28:18.958Z",
+        "scope": "All commits reachable from this default-branch revision, including merges and all authors."
+      },
+      "code": {
+        "value": 1973,
+        "observedAt": "2026-09-17T05:28:18.958Z",
+        "scope": "Physical source lines counted in each physical file, including native Astro components, tests, examples and parsed notebook code cells; excluding blanks, comments, dependencies, generated files, documentation and notebook outputs."
+      }
+    },
+    "koljaPl/AI-Support-Ticket-Triage-API": {
+      "revision": "d7c74ec6a9d4330dfcfa16c321f18e7a53a675a3",
+      "defaultBranch": "main",
+      "counter": "cloc 2.10",
+      "commits": {
+        "value": 10,
+        "observedAt": "2026-09-17T05:28:20.567Z",
+        "scope": "All commits reachable from this default-branch revision, including merges and all authors."
+      },
+      "code": {
+        "value": 1055,
+        "observedAt": "2026-09-17T05:28:20.567Z",
+        "scope": "Physical source lines counted in each physical file, including native Astro components, tests, examples and parsed notebook code cells; excluding blanks, comments, dependencies, generated files, documentation and notebook outputs."
+      }
+    },
+    "koljaPl/alert-system": {
+      "revision": "a72fc99df78de8d9fb1849929a4279c1eedc908d",
+      "defaultBranch": "main",
+      "counter": "cloc 2.10",
+      "commits": {
+        "value": 1,
+        "observedAt": "2026-09-17T05:28:22.072Z",
+        "scope": "All commits reachable from this default-branch revision, including merges and all authors."
+      },
+      "code": {
+        "value": 0,
+        "observedAt": "2026-09-17T05:28:22.072Z",
+        "scope": "Physical source lines counted in each physical file, including native Astro components, tests, examples and parsed notebook code cells; excluding blanks, comments, dependencies, generated files, documentation and notebook outputs."
+      }
+    },
+    "koljaPl/algorithms": {
+      "revision": "ee9890aed7d143a43836914b7260d808e3912420",
+      "defaultBranch": "main",
+      "counter": "cloc 2.10",
+      "commits": {
+        "value": 525,
+        "observedAt": "2026-09-20T12:14:08.649Z",
+        "scope": "All commits reachable from this default-branch revision, including merges and all authors."
+      },
+      "code": {
+        "value": 14217,
+        "observedAt": "2026-09-20T12:14:08.649Z",
+        "scope": "Physical source lines counted in each physical file, including native Astro components, tests, examples and parsed notebook code cells; excluding blanks, comments, dependencies, generated files, documentation and notebook outputs."
+      }
+    },
+    "koljaPl/all-problems": {
+      "revision": "69df03295d64d2915f25868b2b7d4e85c9552985",
+      "defaultBranch": "main",
+      "counter": "cloc 2.10",
+      "commits": {
+        "value": 5,
+        "observedAt": "2026-09-17T05:28:25.094Z",
+        "scope": "All commits reachable from this default-branch revision, including merges and all authors."
+      },
+      "code": {
+        "value": 2233,
+        "observedAt": "2026-09-17T05:28:25.094Z",
+        "scope": "Physical source lines counted in each physical file, including native Astro components, tests, examples and parsed notebook code cells; excluding blanks, comments, dependencies, generated files, documentation and notebook outputs."
+      }
+    },
+    "koljaPl/AutoFilesSort": {
+      "revision": "799de3f149c670dce9bdeda2f57bcc5496275d8f",
+      "defaultBranch": "master",
+      "counter": "cloc 2.10",
+      "commits": {
+        "value": 1,
+        "observedAt": "2026-09-17T05:28:26.628Z",
+        "scope": "All commits reachable from this default-branch revision, including merges and all authors."
+      },
+      "code": {
+        "value": 4,
+        "observedAt": "2026-09-17T05:28:26.628Z",
+        "scope": "Physical source lines counted in each physical file, including native Astro components, tests, examples and parsed notebook code cells; excluding blanks, comments, dependencies, generated files, documentation and notebook outputs."
+      }
+    },
+    "koljaPl/AutoFilesSorter": {
+      "revision": "87e83d61a012d94a0fca2601a26e6bcac3e75520",
+      "defaultBranch": "master",
+      "counter": "cloc 2.10",
+      "commits": {
+        "value": 3,
+        "observedAt": "2026-09-17T05:28:28.183Z",
+        "scope": "All commits reachable from this default-branch revision, including merges and all authors."
+      },
+      "code": {
+        "value": 176,
+        "observedAt": "2026-09-17T05:28:28.183Z",
+        "scope": "Physical source lines counted in each physical file, including native Astro components, tests, examples and parsed notebook code cells; excluding blanks, comments, dependencies, generated files, documentation and notebook outputs."
+      }
+    },
+    "koljaPl/budget_control_tg_bot": {
+      "revision": "8485e7e59f641d2494952611b360cf59e0c0963b",
+      "defaultBranch": "main",
+      "counter": "cloc 2.10",
+      "commits": {
+        "value": 4,
+        "observedAt": "2026-09-17T05:28:29.825Z",
+        "scope": "All commits reachable from this default-branch revision, including merges and all authors."
+      },
+      "code": {
+        "value": 1488,
+        "observedAt": "2026-09-17T05:28:29.825Z",
+        "scope": "Physical source lines counted in each physical file, including native Astro components, tests, examples and parsed notebook code cells; excluding blanks, comments, dependencies, generated files, documentation and notebook outputs."
+      }
+    },
+    "koljaPl/calc_from_scratch": {
+      "revision": "993a6ef72c63c6601b92a64b308481d0b4f07569",
+      "defaultBranch": "main",
+      "counter": "cloc 2.10",
+      "commits": {
+        "value": 2,
+        "observedAt": "2026-09-17T05:28:31.522Z",
+        "scope": "All commits reachable from this default-branch revision, including merges and all authors."
+      },
+      "code": {
+        "value": 335,
+        "observedAt": "2026-09-17T05:28:31.522Z",
+        "scope": "Physical source lines counted in each physical file, including native Astro components, tests, examples and parsed notebook code cells; excluding blanks, comments, dependencies, generated files, documentation and notebook outputs."
+      }
+    },
+    "koljaPl/code-type-trainer": {
+      "revision": "7b06b7f94822a02600862a0a121b9db0060dab73",
+      "defaultBranch": "main",
+      "counter": "cloc 2.10",
+      "commits": {
+        "value": 1,
+        "observedAt": "2026-09-17T05:28:33.340Z",
+        "scope": "All commits reachable from this default-branch revision, including merges and all authors."
+      },
+      "code": {
+        "value": 0,
+        "observedAt": "2026-09-17T05:28:33.340Z",
+        "scope": "Physical source lines counted in each physical file, including native Astro components, tests, examples and parsed notebook code cells; excluding blanks, comments, dependencies, generated files, documentation and notebook outputs."
+      }
+    },
+    "koljaPl/Commit-Faker": {
+      "revision": "16c18ee309e3d729a65acb1fb06c16519c082dba",
+      "defaultBranch": "main",
+      "counter": "cloc 2.10",
+      "commits": {
+        "value": 4,
+        "observedAt": "2026-09-17T05:28:34.933Z",
+        "scope": "All commits reachable from this default-branch revision, including merges and all authors."
+      },
+      "code": {
+        "value": 344,
+        "observedAt": "2026-09-17T05:28:34.933Z",
+        "scope": "Physical source lines counted in each physical file, including native Astro components, tests, examples and parsed notebook code cells; excluding blanks, comments, dependencies, generated files, documentation and notebook outputs."
+      }
+    },
+    "koljaPl/example_tgbot_osv": {
+      "revision": "9c116dafb5030a1ef8534f72b8600a1770546edc",
+      "defaultBranch": "master",
+      "counter": "cloc 2.10",
+      "commits": {
+        "value": 4,
+        "observedAt": "2026-09-17T05:28:36.398Z",
+        "scope": "All commits reachable from this default-branch revision, including merges and all authors."
+      },
+      "code": {
+        "value": 324,
+        "observedAt": "2026-09-17T05:28:36.398Z",
+        "scope": "Physical source lines counted in each physical file, including native Astro components, tests, examples and parsed notebook code cells; excluding blanks, comments, dependencies, generated files, documentation and notebook outputs."
+      }
+    },
+    "koljaPl/fastapi-blog": {
+      "revision": "1ce9a48f9187c5ad3b89e623feb349da93e5d716",
+      "defaultBranch": "main",
+      "counter": "cloc 2.10",
+      "commits": {
+        "value": 15,
+        "observedAt": "2026-09-17T05:28:38.055Z",
+        "scope": "All commits reachable from this default-branch revision, including merges and all authors."
+      },
+      "code": {
+        "value": 291,
+        "observedAt": "2026-09-17T05:28:38.055Z",
+        "scope": "Physical source lines counted in each physical file, including native Astro components, tests, examples and parsed notebook code cells; excluding blanks, comments, dependencies, generated files, documentation and notebook outputs."
+      }
+    },
+    "koljaPl/fastapi-blog-platform": {
+      "revision": "e71991ea2480159383aa311439812881652eef86",
+      "defaultBranch": "main",
+      "counter": "cloc 2.10",
+      "commits": {
+        "value": 18,
+        "observedAt": "2026-09-17T05:28:39.568Z",
+        "scope": "All commits reachable from this default-branch revision, including merges and all authors."
+      },
+      "code": {
+        "value": 3437,
+        "observedAt": "2026-09-17T05:28:39.568Z",
+        "scope": "Physical source lines counted in each physical file, including native Astro components, tests, examples and parsed notebook code cells; excluding blanks, comments, dependencies, generated files, documentation and notebook outputs."
+      }
+    },
+    "koljaPl/fastapi-docs-like-pdf-book": {
+      "revision": "90e1747e42dc8b3f59f1e1daac835780af561e5a",
+      "defaultBranch": "main",
+      "counter": "cloc 2.10",
+      "commits": {
+        "value": 6,
+        "observedAt": "2026-09-17T05:28:40.977Z",
+        "scope": "All commits reachable from this default-branch revision, including merges and all authors."
+      },
+      "code": {
+        "value": 405,
+        "observedAt": "2026-09-17T05:28:40.977Z",
+        "scope": "Physical source lines counted in each physical file, including native Astro components, tests, examples and parsed notebook code cells; excluding blanks, comments, dependencies, generated files, documentation and notebook outputs."
+      }
+    },
+    "koljaPl/fastapi-rating": {
+      "revision": "2b9952e76275781b6e22fddaf823744e7f0cf326",
+      "defaultBranch": "main",
+      "counter": "cloc 2.10",
+      "commits": {
+        "value": 1,
+        "observedAt": "2026-09-17T05:28:42.428Z",
+        "scope": "All commits reachable from this default-branch revision, including merges and all authors."
+      },
+      "code": {
+        "value": 0,
+        "observedAt": "2026-09-17T05:28:42.428Z",
+        "scope": "Physical source lines counted in each physical file, including native Astro components, tests, examples and parsed notebook code cells; excluding blanks, comments, dependencies, generated files, documentation and notebook outputs."
+      }
+    },
+    "koljaPl/FastAPI-Task-Management-API": {
+      "revision": "fd56073fa8b0372e0a779f0a250de196d20688a5",
+      "defaultBranch": "main",
+      "counter": "cloc 2.10",
+      "commits": {
+        "value": 14,
+        "observedAt": "2026-09-17T05:28:43.903Z",
+        "scope": "All commits reachable from this default-branch revision, including merges and all authors."
+      },
+      "code": {
+        "value": 478,
+        "observedAt": "2026-09-17T05:28:43.903Z",
+        "scope": "Physical source lines counted in each physical file, including native Astro components, tests, examples and parsed notebook code cells; excluding blanks, comments, dependencies, generated files, documentation and notebook outputs."
+      }
+    },
+    "koljaPl/gis": {
+      "revision": "4b1fde96de08943e2ab4e60a5ff65089248e9b87",
+      "defaultBranch": "main",
+      "counter": "cloc 2.10",
+      "commits": {
+        "value": 1,
+        "observedAt": "2026-09-17T05:28:45.481Z",
+        "scope": "All commits reachable from this default-branch revision, including merges and all authors."
+      },
+      "code": {
+        "value": 0,
+        "observedAt": "2026-09-17T05:28:45.481Z",
+        "scope": "Physical source lines counted in each physical file, including native Astro components, tests, examples and parsed notebook code cells; excluding blanks, comments, dependencies, generated files, documentation and notebook outputs."
+      }
+    },
+    "koljaPl/koljaPl": {
+      "revision": "03a7606bddff284f690e83b391f3d82375b80760",
+      "defaultBranch": "main",
+      "counter": "cloc 2.10",
+      "commits": {
+        "value": 24,
+        "observedAt": "2026-09-17T05:28:46.962Z",
+        "scope": "All commits reachable from this default-branch revision, including merges and all authors."
+      },
+      "code": {
+        "value": 0,
+        "observedAt": "2026-09-17T05:28:46.962Z",
+        "scope": "Physical source lines counted in each physical file, including native Astro components, tests, examples and parsed notebook code cells; excluding blanks, comments, dependencies, generated files, documentation and notebook outputs."
+      }
+    },
+    "koljaPl/koljaPl.github.io": {
+      "revision": "e7bd2fd273d9393d8fb102c537d6ed61dd47063f",
+      "defaultBranch": "main",
+      "counter": "cloc 2.10",
+      "commits": {
+        "value": 1,
+        "observedAt": "2026-09-17T05:28:48.737Z",
+        "scope": "All commits reachable from this default-branch revision, including merges and all authors."
+      },
+      "code": {
+        "value": 0,
+        "observedAt": "2026-09-17T05:28:48.737Z",
+        "scope": "Physical source lines counted in each physical file, including native Astro components, tests, examples and parsed notebook code cells; excluding blanks, comments, dependencies, generated files, documentation and notebook outputs."
+      }
+    },
+    "koljaPl/kounty": {
+      "revision": "358a02331b4d192b06d33e29f77e4ec498bf6fe9",
+      "defaultBranch": "main",
+      "counter": "cloc 2.10",
+      "commits": {
+        "value": 1,
+        "observedAt": "2026-09-17T05:28:50.376Z",
+        "scope": "All commits reachable from this default-branch revision, including merges and all authors."
+      },
+      "code": {
+        "value": 0,
+        "observedAt": "2026-09-17T05:28:50.376Z",
+        "scope": "Physical source lines counted in each physical file, including native Astro components, tests, examples and parsed notebook code cells; excluding blanks, comments, dependencies, generated files, documentation and notebook outputs."
+      }
+    },
+    "koljaPl/ml-problems": {
+      "revision": "d5f240de9547bd204504393dc21827362136580e",
+      "defaultBranch": "main",
+      "counter": "cloc 2.10",
+      "commits": {
+        "value": 7,
+        "observedAt": "2026-09-17T05:28:51.928Z",
+        "scope": "All commits reachable from this default-branch revision, including merges and all authors."
+      },
+      "code": {
+        "value": 168,
+        "observedAt": "2026-09-17T05:28:51.928Z",
+        "scope": "Physical source lines counted in each physical file, including native Astro components, tests, examples and parsed notebook code cells; excluding blanks, comments, dependencies, generated files, documentation and notebook outputs."
+      }
+    },
+    "koljaPl/my-cool-website": {
+      "revision": "e1ceabeb66fc2602905b479303a8df5d397a30d3",
+      "defaultBranch": "master",
+      "counter": "cloc 2.10",
+      "commits": {
+        "value": 11,
+        "observedAt": "2026-09-17T05:28:54.907Z",
+        "scope": "All commits reachable from this default-branch revision, including merges and all authors."
+      },
+      "code": {
+        "value": 716,
+        "observedAt": "2026-09-17T05:28:54.907Z",
+        "scope": "Physical source lines counted in each physical file, including native Astro components, tests, examples and parsed notebook code cells; excluding blanks, comments, dependencies, generated files, documentation and notebook outputs."
+      }
+    },
+    "koljaPl/My-WEBSite": {
+      "revision": "024bf896c9abfd08cfe8d68c253ec49482828f81",
+      "defaultBranch": "main",
+      "counter": "cloc 2.10",
+      "commits": {
+        "value": 1,
+        "observedAt": "2026-09-17T05:28:56.540Z",
+        "scope": "All commits reachable from this default-branch revision, including merges and all authors."
+      },
+      "code": {
+        "value": 0,
+        "observedAt": "2026-09-17T05:28:56.540Z",
+        "scope": "Physical source lines counted in each physical file, including native Astro components, tests, examples and parsed notebook code cells; excluding blanks, comments, dependencies, generated files, documentation and notebook outputs."
+      }
+    },
+    "koljaPl/neetcode-submissions": {
+      "revision": "672e9aed6e98f326b92de5e1dde3dbeba3e43b45",
+      "defaultBranch": "main",
+      "counter": "cloc 2.10",
+      "commits": {
+        "value": 262,
+        "observedAt": "2026-09-17T05:28:58.110Z",
+        "scope": "All commits reachable from this default-branch revision, including merges and all authors."
+      },
+      "code": {
+        "value": 7254,
+        "observedAt": "2026-09-17T05:28:58.110Z",
+        "scope": "Physical source lines counted in each physical file, including native Astro components, tests, examples and parsed notebook code cells; excluding blanks, comments, dependencies, generated files, documentation and notebook outputs."
+      }
+    },
+    "koljaPl/pseudo": {
+      "revision": "04e6ff362b227795327832acaa1380c496e0706b",
+      "defaultBranch": "main",
+      "counter": "cloc 2.10",
+      "commits": {
+        "value": 6,
+        "observedAt": "2026-09-17T05:28:59.597Z",
+        "scope": "All commits reachable from this default-branch revision, including merges and all authors."
+      },
+      "code": {
+        "value": 2328,
+        "observedAt": "2026-09-17T05:28:59.597Z",
+        "scope": "Physical source lines counted in each physical file, including native Astro components, tests, examples and parsed notebook code cells; excluding blanks, comments, dependencies, generated files, documentation and notebook outputs."
+      }
+    },
+    "koljaPl/pseudo-programming-language": {
+      "revision": "c19a59ca845fd57338c0dd36866abfc413d0ba43",
+      "defaultBranch": "main",
+      "counter": "cloc 2.10",
+      "commits": {
+        "value": 124,
+        "observedAt": "2026-09-17T05:29:01.186Z",
+        "scope": "All commits reachable from this default-branch revision, including merges and all authors."
+      },
+      "code": {
+        "value": 29385,
+        "observedAt": "2026-09-17T05:29:01.186Z",
+        "scope": "Physical source lines counted in each physical file, including native Astro components, tests, examples and parsed notebook code cells; excluding blanks, comments, dependencies, generated files, documentation and notebook outputs."
+      }
+    },
+    "koljaPl/secret_minecraft_mod_1.21.11": {
+      "revision": "28cf9c760285c38eb91dc931665dc0c07f0f6a0a",
+      "defaultBranch": "main",
+      "counter": "cloc 2.10",
+      "commits": {
+        "value": 6,
+        "observedAt": "2026-09-20T12:14:45.897Z",
+        "scope": "All commits reachable from this default-branch revision, including merges and all authors."
+      },
+      "code": {
+        "value": 0,
+        "observedAt": "2026-09-20T12:14:45.897Z",
+        "scope": "Physical source lines counted in each physical file, including native Astro components, tests, examples and parsed notebook code cells; excluding blanks, comments, dependencies, generated files, documentation and notebook outputs."
+      }
+    },
+    "koljaPl/shop-typescript": {
+      "revision": "5da8f5879cc1c690b2a7d53a935f3b3c565d9a9b",
+      "defaultBranch": "main",
+      "counter": "cloc 2.10",
+      "commits": {
+        "value": 16,
+        "observedAt": "2026-09-17T05:29:04.123Z",
+        "scope": "All commits reachable from this default-branch revision, including merges and all authors."
+      },
+      "code": {
+        "value": 2240,
+        "observedAt": "2026-09-17T05:29:04.123Z",
+        "scope": "Physical source lines counted in each physical file, including native Astro components, tests, examples and parsed notebook code cells; excluding blanks, comments, dependencies, generated files, documentation and notebook outputs."
+      }
+    },
+    "koljaPl/Stat-it": {
+      "revision": "bce47eb5d727b547bb22cdd2255e0ddb296b3a73",
+      "defaultBranch": "main",
+      "counter": "cloc 2.10",
+      "commits": {
+        "value": 5,
+        "observedAt": "2026-09-17T05:29:05.625Z",
+        "scope": "All commits reachable from this default-branch revision, including merges and all authors."
+      },
+      "code": {
+        "value": 165,
+        "observedAt": "2026-09-17T05:29:05.625Z",
+        "scope": "Physical source lines counted in each physical file, including native Astro components, tests, examples and parsed notebook code cells; excluding blanks, comments, dependencies, generated files, documentation and notebook outputs."
+      }
+    },
+    "koljaPl/text-to-speech": {
+      "revision": "a55781fb0893ebb43162cb6b28c709aa9648cac0",
+      "defaultBranch": "main",
+      "counter": "cloc 2.10",
+      "commits": {
+        "value": 4,
+        "observedAt": "2026-09-17T05:29:07.228Z",
+        "scope": "All commits reachable from this default-branch revision, including merges and all authors."
+      },
+      "code": {
+        "value": 605,
+        "observedAt": "2026-09-17T05:29:07.228Z",
+        "scope": "Physical source lines counted in each physical file, including native Astro components, tests, examples and parsed notebook code cells; excluding blanks, comments, dependencies, generated files, documentation and notebook outputs."
+      }
+    },
+    "koljaPl/tippspiel": {
+      "revision": "a7bdad462ba3f2750c8adf3827181cd03f3bb19a",
+      "defaultBranch": "main",
+      "counter": "cloc 2.10",
+      "commits": {
+        "value": 1,
+        "observedAt": "2026-09-17T05:29:08.850Z",
+        "scope": "All commits reachable from this default-branch revision, including merges and all authors."
+      },
+      "code": {
+        "value": 0,
+        "observedAt": "2026-09-17T05:29:08.850Z",
+        "scope": "Physical source lines counted in each physical file, including native Astro components, tests, examples and parsed notebook code cells; excluding blanks, comments, dependencies, generated files, documentation and notebook outputs."
+      }
+    },
+    "koljaPl/ultimatesolution": {
+      "revision": "8c76fd58f7c56365d43647a107f054f4029f1fa8",
+      "defaultBranch": "master",
+      "counter": "cloc 2.10",
+      "commits": {
+        "value": 13,
+        "observedAt": "2026-09-17T05:29:10.324Z",
+        "scope": "All commits reachable from this default-branch revision, including merges and all authors."
+      },
+      "code": {
+        "value": 247,
+        "observedAt": "2026-09-17T05:29:10.324Z",
+        "scope": "Physical source lines counted in each physical file, including native Astro components, tests, examples and parsed notebook code cells; excluding blanks, comments, dependencies, generated files, documentation and notebook outputs."
+      }
+    },
+    "koljaPl/mod": {
+      "revision": null,
+      "defaultBranch": "main",
+      "counter": "cloc 2.10",
+      "commits": {
+        "value": 0,
+        "observedAt": "2026-09-20T12:27:36.582Z",
+        "scope": "Empty public repository; no branch commits."
+      },
+      "code": {
+        "value": 0,
+        "observedAt": "2026-09-20T12:27:36.582Z",
+        "scope": "Empty public repository; no source files."
+      }
+    }
+  },
+  "accounts": {
+    "github-koljapl": {
+      "monthlyCommits": {
+        "value": 272,
+        "observedAt": "2026-09-20T12:27:52.084Z",
+        "scope": "Commits attributed by GitHub to koljaPl in the preceding 30 days, across owned public non-fork default branches; commit date is the committer date."
+      },
+      "code": {
+        "value": 71558,
+        "observedAt": "2026-09-20T12:27:52.084Z",
+        "scope": "Owned public non-fork repositories, default branches; all authors' repository source, not individually authored lines."
+      },
+      "windowStart": "2026-08-21T12:27:52.084Z",
+      "windowEnd": "2026-09-20T12:27:52.084Z",
+      "repositories": [
+        "koljaPl/2-squares-collapse",
+        "koljaPl/AI-Document-Intake-Automation",
+        "koljaPl/AI-Support-Ticket-Triage-API",
+        "koljaPl/alert-system",
+        "koljaPl/algorithms",
+        "koljaPl/all-problems",
+        "koljaPl/AutoFilesSort",
+        "koljaPl/AutoFilesSorter",
+        "koljaPl/budget_control_tg_bot",
+        "koljaPl/calc_from_scratch",
+        "koljaPl/code-type-trainer",
+        "koljaPl/Commit-Faker",
+        "koljaPl/example_tgbot_osv",
+        "koljaPl/fastapi-blog",
+        "koljaPl/fastapi-blog-platform",
+        "koljaPl/fastapi-docs-like-pdf-book",
+        "koljaPl/fastapi-rating",
+        "koljaPl/FastAPI-Task-Management-API",
+        "koljaPl/gis",
+        "koljaPl/koljaPl",
+        "koljaPl/koljaPl.github.io",
+        "koljaPl/kounty",
+        "koljaPl/ml-problems",
+        "koljaPl/mod",
+        "koljaPl/my-cool-website",
+        "koljaPl/My-WEBSite",
+        "koljaPl/neetcode-submissions",
+        "koljaPl/pseudo",
+        "koljaPl/pseudo-programming-language",
+        "koljaPl/secret_minecraft_mod_1.21.11",
+        "koljaPl/shop-typescript",
+        "koljaPl/Stat-it",
+        "koljaPl/text-to-speech",
+        "koljaPl/tippspiel",
+        "koljaPl/ultimatesolution"
+      ],
+      "revisions": {
+        "koljaPl/2-squares-collapse": "dd6d1497814f365d742e5a30a4626c0b315d077c",
+        "koljaPl/AI-Document-Intake-Automation": "cc1a5520b75ff7a1bf77cc5a4d1ccc420c203a7b",
+        "koljaPl/AI-Support-Ticket-Triage-API": "d7c74ec6a9d4330dfcfa16c321f18e7a53a675a3",
+        "koljaPl/alert-system": "a72fc99df78de8d9fb1849929a4279c1eedc908d",
+        "koljaPl/algorithms": "ee9890aed7d143a43836914b7260d808e3912420",
+        "koljaPl/all-problems": "69df03295d64d2915f25868b2b7d4e85c9552985",
+        "koljaPl/AutoFilesSort": "799de3f149c670dce9bdeda2f57bcc5496275d8f",
+        "koljaPl/AutoFilesSorter": "87e83d61a012d94a0fca2601a26e6bcac3e75520",
+        "koljaPl/budget_control_tg_bot": "8485e7e59f641d2494952611b360cf59e0c0963b",
+        "koljaPl/calc_from_scratch": "993a6ef72c63c6601b92a64b308481d0b4f07569",
+        "koljaPl/code-type-trainer": "7b06b7f94822a02600862a0a121b9db0060dab73",
+        "koljaPl/Commit-Faker": "16c18ee309e3d729a65acb1fb06c16519c082dba",
+        "koljaPl/example_tgbot_osv": "9c116dafb5030a1ef8534f72b8600a1770546edc",
+        "koljaPl/fastapi-blog": "1ce9a48f9187c5ad3b89e623feb349da93e5d716",
+        "koljaPl/fastapi-blog-platform": "e71991ea2480159383aa311439812881652eef86",
+        "koljaPl/fastapi-docs-like-pdf-book": "90e1747e42dc8b3f59f1e1daac835780af561e5a",
+        "koljaPl/fastapi-rating": "2b9952e76275781b6e22fddaf823744e7f0cf326",
+        "koljaPl/FastAPI-Task-Management-API": "fd56073fa8b0372e0a779f0a250de196d20688a5",
+        "koljaPl/gis": "4b1fde96de08943e2ab4e60a5ff65089248e9b87",
+        "koljaPl/koljaPl": "03a7606bddff284f690e83b391f3d82375b80760",
+        "koljaPl/koljaPl.github.io": "e7bd2fd273d9393d8fb102c537d6ed61dd47063f",
+        "koljaPl/kounty": "358a02331b4d192b06d33e29f77e4ec498bf6fe9",
+        "koljaPl/ml-problems": "d5f240de9547bd204504393dc21827362136580e",
+        "koljaPl/mod": null,
+        "koljaPl/my-cool-website": "e1ceabeb66fc2602905b479303a8df5d397a30d3",
+        "koljaPl/My-WEBSite": "024bf896c9abfd08cfe8d68c253ec49482828f81",
+        "koljaPl/neetcode-submissions": "672e9aed6e98f326b92de5e1dde3dbeba3e43b45",
+        "koljaPl/pseudo": "04e6ff362b227795327832acaa1380c496e0706b",
+        "koljaPl/pseudo-programming-language": "c19a59ca845fd57338c0dd36866abfc413d0ba43",
+        "koljaPl/secret_minecraft_mod_1.21.11": "28cf9c760285c38eb91dc931665dc0c07f0f6a0a",
+        "koljaPl/shop-typescript": "5da8f5879cc1c690b2a7d53a935f3b3c565d9a9b",
+        "koljaPl/Stat-it": "bce47eb5d727b547bb22cdd2255e0ddb296b3a73",
+        "koljaPl/text-to-speech": "a55781fb0893ebb43162cb6b28c709aa9648cac0",
+        "koljaPl/tippspiel": "a7bdad462ba3f2750c8adf3827181cd03f3bb19a",
+        "koljaPl/ultimatesolution": "8c76fd58f7c56365d43647a107f054f4029f1fa8"
+      }
+    }
+  }
+}

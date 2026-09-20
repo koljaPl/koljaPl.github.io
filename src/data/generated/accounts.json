@@ -1,0 +1,63 @@
+{
+  "version": 1,
+  "accounts": {
+    "codeforces-niklasplugin": {
+      "platform": "codeforces",
+      "handle": "NiklasPlugin",
+      "profileUrl": "https://codeforces.com/profile/NiklasPlugin",
+      "observedAt": "2026-09-20T12:26:57.803Z",
+      "metrics": {
+        "rating": 1888,
+        "maxRating": 1970,
+        "rank": "expert",
+        "solved": 58,
+        "contests": 11
+      }
+    },
+    "eolymp-platino": {
+      "platform": "eolymp",
+      "handle": "Platino",
+      "profileUrl": "https://eolymp.com/en/users/Platino",
+      "observedAt": "2026-09-15T06:40:57.424Z",
+      "metrics": {
+        "rating": 1884,
+        "problems": 184,
+        "submissions": 221
+      }
+    },
+    "atcoder-nicklas": {
+      "platform": "atcoder",
+      "handle": "Nicklas",
+      "profileUrl": "https://atcoder.jp/users/Nicklas",
+      "observedAt": "2026-09-20T12:26:59.344Z",
+      "metrics": {
+        "rating": 1685,
+        "maxRating": 1997,
+        "contests": 15
+      }
+    },
+    "leetcode-nicklaspl": {
+      "platform": "leetcode",
+      "handle": "NicklasPL",
+      "profileUrl": "https://leetcode.com/u/NicklasPL/",
+      "observedAt": "2026-09-20T12:26:59.646Z",
+      "metrics": {
+        "solved": 1159,
+        "easy": 723,
+        "medium": 331,
+        "hard": 105
+      }
+    },
+    "github-koljapl": {
+      "platform": "github",
+      "handle": "koljaPl",
+      "profileUrl": "https://github.com/koljaPl",
+      "observedAt": "2026-09-20T12:27:00.537Z",
+      "metrics": {
+        "followers": 5,
+        "repositories": 35,
+        "stars": 13
+      }
+    }
+  }
+}
