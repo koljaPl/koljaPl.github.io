@@ -1,0 +1,17 @@
+Hubble photograph: NASA, May 2009. Earth/background hidden with a hand-drawn SVG clip.
+https://science.nasa.gov/image-detail/28045752710_6a9cca2c72_k/
+NASA imagery guidelines: https://www.nasa.gov/nasa-brand-center/images-and-media/
+No endorsement or participation in the Hubble project is implied.
+
+Lange's metalmark butterfly: U.S. Fish and Wildlife Service, public domain.
+https://commons.wikimedia.org/wiki/File:Dorsal_view_of_an_endangered_lange_metalmark_butterfly.jpg
+SVG masks separate the original photographic wings and body; no generated replacement.
+
+Brain: SPL/NAC Brain Atlas, Open Anatomy Project / Surgical Planning Laboratory,
+Brigham and Women's Hospital. Derived from MRI atlas geometry, simplified and
+reconstructed as six closed educational regions plus neutral, non-selectable supporting anatomy. Original individual atlas, not Nicklas's brain.
+https://www.openanatomy.org/atlas-pages/atlas-spl-nac-brain.html
+https://github.com/mhalle/spl-brain-atlas
+License: /brain/LICENSE.txt (3D Slicer license). Region mapping: /brain/region-mapping.json.
+
+Atlas source revision: bec24db25aad5f7600e2df3becfb1f883e61ff56
