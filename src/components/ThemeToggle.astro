@@ -1,0 +1,67 @@
+---
+import Icon from "./Icon.astro";
+---
+
+<button
+  class="icon-button theme-toggle"
+  type="button"
+  aria-label="Switch to dark theme"
+  title="Switch to dark theme"
+  data-theme-toggle
+  hidden
+>
+  <span class="theme-toggle__sun"><Icon name="sun" /></span>
+  <span class="theme-toggle__moon"><Icon name="moon" /></span>
+</button>
+
+<script>
+  const storageKey = "nicklas-theme";
+  const toggle = document.querySelector<HTMLButtonElement>(
+    "[data-theme-toggle]",
+  );
+  const media = window.matchMedia("(prefers-color-scheme: dark)");
+
+  const getStoredTheme = () => {
+    try {
+      const stored = localStorage.getItem(storageKey);
+      return stored === "light" || stored === "dark" ? stored : null;
+    } catch {
+      return null;
+    }
+  };
+
+  const resolvedTheme = () =>
+    document.documentElement.dataset.theme ??
+    (media.matches ? "dark" : "light");
+
+  const updateControl = () => {
+    if (!toggle) return;
+    const next = resolvedTheme() === "dark" ? "light" : "dark";
+    const label = `Switch to ${next} theme`;
+    toggle.setAttribute("aria-label", label);
+    toggle.title = label;
+  };
+
+  toggle?.addEventListener("click", () => {
+    const next = resolvedTheme() === "dark" ? "light" : "dark";
+    document.documentElement.dataset.theme = next;
+    document.documentElement.style.colorScheme = next;
+    try {
+      localStorage.setItem(storageKey, next);
+    } catch {
+      // The selected theme still applies for this page view.
+    }
+    updateControl();
+  });
+
+  media.addEventListener("change", ({ matches }) => {
+    if (getStoredTheme()) return;
+    const next = matches ? "dark" : "light";
+    document.documentElement.dataset.theme = next;
+    document.documentElement.style.colorScheme = next;
+    updateControl();
+  });
+
+  updateControl();
+  if (toggle) toggle.hidden = false;
+</script>

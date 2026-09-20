@@ -1,0 +1,118 @@
+---
+import Butterfly from "@/components/Butterfly.astro";
+import AccountCards from "@/components/AccountCards.astro";
+import ContentNeeded from "@/components/ContentNeeded.astro";
+import PageIntro from "@/components/PageIntro.astro";
+import Portrait from "@/components/Portrait.astro";
+import { profile, timeline } from "@/data/site";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const accents = ["blue", "red", "yellow", "green"] as const;
+---
+
+<BaseLayout
+  title="About"
+  description="About Nicklas Plugin and his interests across engineering, open source, algorithms, programming competitions, and machine learning."
+>
+  <div class="page-shell section-shell">
+    <div class="container">
+      <div class="about-intro">
+        <PageIntro
+          eyebrow="About / Personal context"
+          title="Curiosity is the through-line."
+          description="Hi, guys. Here you can find some more personal information"
+        />
+
+        <Butterfly />
+      </div>
+      <section class="about-profile" aria-labelledby="about-profile-heading">
+        <div class="about-profile__portrait"><Portrait eager /></div>
+        <div class="about-profile__copy">
+          <p class="technical-label">Introduction</p>
+          <h2 id="about-profile-heading">
+            A broader view of the engineer behind the work.
+          </h2>
+          {
+            profile.biography.value ? (
+              <ContentNeeded title={profile.biography.value} />
+            ) : (
+              <ContentNeeded title={profile.biography.placeholder} />
+            )
+          }
+          <dl class="about-profile__details">
+            <div>
+              <dt>Current focus</dt>
+              <dd>
+                {profile.currentFocus.value ?? profile.currentFocus.placeholder}
+              </dd>
+            </div>
+            <div>
+              <dt>Location</dt>
+              <dd>{profile.location.value ?? profile.location.placeholder}</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <AccountCards />
+
+      <section class="interest-index" aria-labelledby="interests-heading">
+        <div class="interest-index__heading">
+          <p class="technical-label">Interest index</p>
+          <h2 id="interests-heading">Six connected ways of thinking.</h2>
+        </div>
+        <ol>
+          {
+            profile.areas.map((area, index) => (
+              <li class={`accent-${accents[index % accents.length]}`}>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <strong>{area}</strong>
+                <span class="accent-node" aria-hidden="true" />
+              </li>
+            ))
+          }
+        </ol>
+      </section>
+
+      <section class="about-timeline" aria-labelledby="timeline-heading">
+        <div>
+          <p class="technical-label">Milestones</p>
+          <h2 id="timeline-heading">
+            {
+              timeline.length > 0
+                ? "Selected milestones."
+                : "Milestones, when they are ready."
+            }
+          </h2>
+          <p>
+            {
+              timeline.length > 0
+                ? "A concise chronology of the moments Nicklas has chosen to highlight."
+                : "A concise personal timeline belongs here once the underlying dates and facts have been supplied."
+            }
+          </p>
+        </div>
+        {
+          timeline.length > 0 ? (
+            <ol class="timeline-list">
+              {timeline.map((entry) => (
+                <li class={`accent-${entry.accent}`}>
+                  <span class="timeline-date">{entry.date}</span>
+                  <div>
+                    <h3>{entry.title}</h3>
+                    <p>{entry.description}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          ) : (
+            <ContentNeeded
+              compact
+              title="Dates, milestones, and brief descriptions have not yet been supplied."
+            />
+          )
+        }
+      </section>
+    </div>
+  </div>
+</BaseLayout>

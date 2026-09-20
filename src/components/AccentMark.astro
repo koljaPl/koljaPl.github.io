@@ -1,0 +1,19 @@
+---
+interface Props {
+  label?: string;
+  compact?: boolean;
+}
+
+const { label, compact = false } = Astro.props;
+---
+
+<span
+  class:list={["accent-mark", { "accent-mark--compact": compact }]}
+  aria-hidden={!label}
+>
+  <span class="accent-dot accent-blue"></span>
+  <span class="accent-dot accent-red"></span>
+  <span class="accent-dot accent-yellow"></span>
+  <span class="accent-dot accent-green"></span>
+  {label && <span class="sr-only">{label}</span>}
+</span>

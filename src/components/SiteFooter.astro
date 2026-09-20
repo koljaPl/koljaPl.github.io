@@ -1,0 +1,47 @@
+---
+import { navigation, profile, socialLinks } from "@/data/site";
+import AccentMark from "./AccentMark.astro";
+
+const configuredSocials = socialLinks.filter((link) => link.href);
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <div class="site-footer__identity">
+      <a href="/" class="site-footer__name">{profile.name}</a>
+      <AccentMark compact />
+      <p>Software engineering · Open source · Algorithms · Machine learning</p>
+    </div>
+
+    <nav class="site-footer__navigation" aria-label="Footer navigation">
+      <ul>
+        {
+          navigation.map((item) => (
+            <li>
+              <a href={item.href}>{item.label}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    {
+      configuredSocials.length > 0 && (
+        <nav class="site-footer__socials" aria-label="Social links">
+          <ul>
+            {configuredSocials.map((link) => (
+              <li>
+                <a href={link.href!} rel="me noreferrer">
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )
+    }
+
+    <p class="site-footer__meta">© {year} {profile.name}</p>
+  </div>
+</footer>

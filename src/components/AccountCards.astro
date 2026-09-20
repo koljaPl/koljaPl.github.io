@@ -1,0 +1,181 @@
+---
+import videoRaw from "@/data/generated/videos.json";
+import { validateVideos, type VideoSnapshot } from "@/data/videos";
+const videos = Object.fromEntries(
+  Object.entries(videoRaw).map(([key, value]) => [key, validateVideos(value)]),
+) as Record<string, VideoSnapshot>;
+import ActivityCalendar from "./ActivityCalendar.astro";
+import activityRaw from "@/data/generated/activity.json";
+import { activityFor, validateActivityCache } from "@/data/activity";
+const activityCache = validateActivityCache(activityRaw);
+import { accountStats } from "@/data/account-stats";
+---
+
+<section
+  class="accounts-section"
+  id="accounts"
+  aria-labelledby="accounts-heading"
+>
+  <div class="accounts-heading">
+    <p class="technical-label">Around the web</p>
+    <h2 id="accounts-heading">Accounts &amp; activity.</h2>
+    <p>
+      A few places to find my code, practice, and projects. Figures are dated
+      snapshots; each platform measures something different.
+    </p>
+  </div>
+  <div class="account-grid">
+    {
+      accountStats.map((account) => (
+        <article
+          class={`account-card accent-${account.accent}`}
+          data-account={account.id}
+          id={`account-${account.id}`}
+        >
+          <div class="account-card__identity">
+            <h3 tabindex="-1">
+              <span class="accent-node" aria-hidden="true" />
+              {account.name}
+            </h3>
+            <a class="text-link" href={account.url} rel="me noreferrer">
+              {account.handle}
+              <span aria-hidden="true"> ↗</span>
+            </a>
+          </div>
+          {account.headline.length ? (
+            <dl class="account-card__headline">
+              {account.headline.map((metric) => (
+                <div>
+                  <dt>{metric.label}</dt>
+                  <dd>{metric.value}</dd>
+                </div>
+              ))}
+              {account.platform === "leetcode" &&
+                account.snapshot &&
+                account.snapshot.metrics.rating === undefined && (
+                  <div>
+                    <dt>Contest rating</dt>
+                    <dd class="account-card__missing">Not available</dd>
+                  </div>
+                )}
+            </dl>
+          ) : (
+            <p class="account-card__unavailable">
+              Public statistics are not available yet.
+            </p>
+          )}
+          <details class="account-card__details">
+            <summary>
+              Details &amp; sources<span aria-hidden="true">+</span>
+            </summary>
+            <div class="account-card__expanded">
+              {account.details.length > 0 && (
+                <dl>
+                  {account.details.map((metric) => (
+                    <div>
+                      <dt>{metric.label}</dt>
+                      <dd>{metric.value}</dd>
+                    </div>
+                  ))}
+                </dl>
+              )}
+              {["github", "leetcode"].includes(account.platform) &&
+                (activityFor(account, activityCache) ? (
+                  <ActivityCalendar
+                    snapshot={activityFor(account, activityCache)!}
+                    id={account.id}
+                  />
+                ) : (
+                  <p>
+                    Daily activity is not available in a verified snapshot yet.
+                  </p>
+                ))}
+              <p>{account.note}</p>
+              {account.platform === "youtube" &&
+                (videos[account.id] ? (
+                  <>
+                    <h4>Latest public videos</h4>
+                    <ul class="account-videos">
+                      {videos[account.id]!.videos.map((video) => (
+                        <li>
+                          <a
+                            href={`https://www.youtube.com/watch?v=${video.id}`}
+                          >
+                            <img
+                              src={video.thumbnail}
+                              alt=""
+                              width="320"
+                              height="180"
+                              loading="lazy"
+                            />
+                            <span>{video.title}</span>
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                    <p>
+                      Videos checked{" "}
+                      {videos[account.id]!.observedAt.slice(0, 10)}.
+                    </p>
+                  </>
+                ) : (
+                  <p>
+                    Latest videos are not available in a verified snapshot yet.
+                  </p>
+                ))}
+              {account.evidence && (
+                <>
+                  <p>{account.evidence.monthlyCommits.scope}</p>
+                  <p>{account.evidence.code.scope}</p>
+                  <p>
+                    Repository metrics observed{" "}
+                    <time datetime={account.evidence.code.observedAt}>
+                      {account.evidence.code.observedAt.slice(0, 10)}
+                    </time>
+                    . Window: {account.evidence.windowStart.slice(0, 10)}–
+                    {account.evidence.windowEnd.slice(0, 10)}.
+                  </p>
+                </>
+              )}
+              {account.snapshot ? (
+                <p class="account-card__date">
+                  Snapshot:{" "}
+                  <time datetime={account.snapshot.observedAt}>
+                    {account.date} (UTC)
+                  </time>
+                  . Kept until a newer snapshot can be verified.
+                </p>
+              ) : (
+                <p>
+                  No verified snapshot is available. Visit the profile for
+                  current public information.
+                </p>
+              )}
+              <a class="text-link" href={account.url}>
+                Source: {account.name} profile<span aria-hidden="true"> ↗</span>
+              </a>
+            </div>
+          </details>
+        </article>
+      ))
+    }
+  </div>
+</section>
+
+<script>
+  const revealAccount = () => {
+    const id = decodeURIComponent(location.hash.slice(1));
+    if (!id.startsWith("account-")) return;
+    const card = document.getElementById(id);
+    const details = card?.querySelector("details");
+    if (!details) return;
+    details.open = true;
+    card?.querySelector<HTMLElement>("h3")?.focus({ preventScroll: true });
+    card?.scrollIntoView({ block: "start" });
+  };
+  revealAccount();
+  window.addEventListener("pageshow", () =>
+    requestAnimationFrame(revealAccount),
+  );
+  window.addEventListener("hashchange", revealAccount);
+</script>

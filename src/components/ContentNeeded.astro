@@ -1,0 +1,29 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  items?: readonly string[];
+  compact?: boolean;
+}
+
+const {
+  eyebrow = "Biography",
+  title,
+  items = [],
+  compact = false,
+} = Astro.props;
+---
+
+<aside class:list={["content-needed", { "content-needed--compact": compact }]}>
+  <p class="technical-label">{eyebrow}</p>
+  <p class="content-needed__title">{title}</p>
+  {
+    items.length > 0 && (
+      <ul>
+        {items.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+    )
+  }
+</aside>

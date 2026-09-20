@@ -1,0 +1,40 @@
+<figure class="satellite-detail" data-photo-entrance="satellite">
+  <div class="photo-flight">
+    <svg
+      viewBox="300 192 218 145"
+      role="img"
+      aria-labelledby="satellite-title"
+      width="436"
+      height="290"
+    >
+      <title id="satellite-title">
+        The Hubble Space Telescope, photographed above Earth by NASA in May 2009
+      </title>
+      <defs
+        ><clipPath id="hubble-cutout"
+          ><path
+            d="M312 260 Q310 250 322 247 Q335 242 349 248 L356 251 L396 244 L443 240 L448 231 L493 227 L495 233 L493 241 Q508 245 509 266 L507 289 L498 298 L459 300 L455 317 L460 323 L457 330 L452 328 L449 319 L451 300 L411 298 L405 317 L360 318 L357 313 L371 297 L354 294 L347 285 L348 270 L330 269 Q317 268 312 260 Z M399 207 L417 243 L414 244 L398 210 Z M397 201 Q402 198 403 206 L399 212 L395 209 Q393 203 397 201 Z"
+          ></path></clipPath
+        ></defs
+      >
+      <image
+        href="/images/hubble.webp"
+        x="0"
+        y="0"
+        width="800"
+        height="532"
+        clip-path="url(#hubble-cutout)"
+      />
+    </svg>
+  </div>
+  <figcaption data-photo-credit>
+    <a href="https://science.nasa.gov/image-detail/28045752710_6a9cca2c72_k/"
+      >Hubble · NASA, 2009</a
+    >
+  </figcaption>
+</figure>
+
+<script>
+  import { initPhotoEntrances } from "@/scripts/photo-entrance";
+  initPhotoEntrances();
+</script>

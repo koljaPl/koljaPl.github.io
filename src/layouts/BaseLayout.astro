@@ -1,0 +1,160 @@
+---
+import "@fontsource-variable/instrument-sans/wght.css";
+import "@fontsource/ibm-plex-mono/latin-400.css";
+import "@fontsource/ibm-plex-mono/latin-500.css";
+import "@/styles/global.css";
+import portrait from "../../photos/portrait.jpg";
+import { profile, socialLinks } from "@/data/site";
+import type { SocialLink } from "@/data/types";
+import SiteFooter from "@/components/SiteFooter.astro";
+import SiteHeader from "@/components/SiteHeader.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+  noindex?: boolean;
+  pageType?: "website" | "article";
+  socialImage?: string | null;
+  socialImageWidth?: number;
+  socialImageHeight?: number;
+  socialImageAlt?: string;
+  omitCanonical?: boolean;
+  jsonLd?:
+    Record<string, unknown> | readonly Record<string, unknown>[] | undefined;
+}
+
+const {
+  title,
+  description = profile.seoDescription,
+  noindex = false,
+  pageType = "website",
+  socialImage: socialImagePath = "/og.png",
+  socialImageWidth = 1200,
+  socialImageHeight = 630,
+  socialImageAlt = `${profile.name} — personal website`,
+  omitCanonical = false,
+  jsonLd,
+} = Astro.props;
+
+const site = Astro.site ?? new URL(profile.siteUrl);
+const pageTitle = title
+  ? `${title} — ${profile.name}`
+  : `${profile.name} — Engineer`;
+const canonical = omitCanonical ? null : new URL(Astro.url.pathname, site);
+const socialImage = socialImagePath ? new URL(socialImagePath, site) : null;
+const socialImageType = socialImagePath
+  ? ({
+      ".avif": "image/avif",
+      ".gif": "image/gif",
+      ".jpg": "image/jpeg",
+      ".jpeg": "image/jpeg",
+      ".png": "image/png",
+      ".webp": "image/webp",
+    }[socialImagePath.match(/\.[a-z0-9]+$/i)?.[0].toLowerCase() ?? ""] ??
+    undefined)
+  : undefined;
+const portraitUrl = new URL(portrait.src, site);
+const sameAs = (socialLinks as readonly SocialLink[]).flatMap((link) =>
+  link.kind !== "email" && link.href ? [link.href] : [],
+);
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: profile.name,
+  url: profile.siteUrl,
+  image: portraitUrl.toString(),
+  knowsAbout: profile.areas,
+  ...(sameAs.length > 0 ? { sameAs } : {}),
+};
+const structuredData = jsonLd
+  ? [personJsonLd, ...(Array.isArray(jsonLd) ? jsonLd : [jsonLd])]
+  : [personJsonLd];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <meta name="robots" content={noindex ? "noindex,follow" : "index,follow"} />
+    <meta
+      name="theme-color"
+      content="#fbfbfc"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="theme-color"
+      content="#0e1013"
+      media="(prefers-color-scheme: dark)"
+    />
+    {canonical && <link rel="canonical" href={canonical} />}
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <title>{pageTitle}</title>
+
+    <meta property="og:type" content={pageType} />
+    <meta property="og:site_name" content={profile.name} />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    {canonical && <meta property="og:url" content={canonical} />}
+    {socialImage && <meta property="og:image" content={socialImage} />}
+    {
+      socialImage && socialImageType && (
+        <meta property="og:image:type" content={socialImageType} />
+      )
+    }
+    {
+      socialImage && (
+        <meta property="og:image:width" content={String(socialImageWidth)} />
+      )
+    }
+    {
+      socialImage && (
+        <meta property="og:image:height" content={String(socialImageHeight)} />
+      )
+    }
+    {socialImage && <meta property="og:image:alt" content={socialImageAlt} />}
+    <meta
+      name="twitter:card"
+      content={socialImage ? "summary_large_image" : "summary"}
+    />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    {socialImage && <meta name="twitter:image" content={socialImage} />}
+    {socialImage && <meta name="twitter:image:alt" content={socialImageAlt} />}
+
+    <script is:inline>
+      (() => {
+        const key = "nicklas-theme";
+        let stored = null;
+        try {
+          stored = localStorage.getItem(key);
+        } catch {}
+        const theme =
+          stored === "light" || stored === "dark"
+            ? stored
+            : matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark"
+              : "light";
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+        document.documentElement.classList.add("js");
+      })();
+    </script>
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify(structuredData)}
+    />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <SiteHeader />
+    <main id="main-content"><slot /></main>
+    <SiteFooter />
+  </body>
+</html>

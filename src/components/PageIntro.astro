@@ -1,0 +1,21 @@
+---
+import AccentMark from "./AccentMark.astro";
+
+interface Props {
+  eyebrow: string;
+  title: string;
+  description: string;
+  compact?: boolean;
+}
+
+const { eyebrow, title, description, compact = false } = Astro.props;
+---
+
+<header class:list={["page-intro", { "page-intro--compact": compact }]}>
+  <div class="page-intro__eyebrow">
+    <AccentMark compact />
+    <span class="technical-label">{eyebrow}</span>
+  </div>
+  <h1>{title}</h1>
+  <p>{description}</p>
+</header>

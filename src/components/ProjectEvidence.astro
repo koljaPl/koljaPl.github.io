@@ -1,0 +1,57 @@
+---
+import raw from "@/data/generated/evidence.json";
+import { validateEvidence } from "@/data/evidence";
+import { githubRepositories } from "@/data/github-repositories";
+interface Props {
+  repositoryKey: string | null;
+  compact?: boolean;
+}
+const { repositoryKey, compact = false } = Astro.props;
+const repository = githubRepositories.find(
+  (item) => item.key === repositoryKey,
+);
+const evidence = repository
+  ? validateEvidence(raw).repositories[
+      `${repository.owner}/${repository.repository}`
+    ]
+  : undefined;
+const format = new Intl.NumberFormat("en-US");
+---
+
+{
+  evidence && (
+    <div
+      class:list={[
+        "project-evidence",
+        { "project-evidence--compact": compact },
+      ]}
+    >
+      <p>
+        <>
+          <span>
+            {format.format(evidence.commits.value)} <span>commits</span>
+          </span>
+          <span>
+            {format.format(evidence.code.value)} <span>source lines</span>
+          </span>
+        </>
+      </p>
+      {!compact && (
+        <details>
+          <summary>Counting scope &amp; snapshot</summary>
+          <p>
+            {evidence.commits.scope} {evidence.code.scope}
+          </p>
+          <p>
+            Counted with {evidence.counter}. Revision{" "}
+            <code>{evidence.revision?.slice(0, 10) ?? "empty"}</code>, observed{" "}
+            <time datetime={evidence.code.observedAt}>
+              {evidence.code.observedAt.slice(0, 10)}
+            </time>
+            . These are repository totals, not individually authored lines.
+          </p>
+        </details>
+      )}
+    </div>
+  )
+}

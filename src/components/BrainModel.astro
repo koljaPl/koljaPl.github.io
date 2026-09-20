@@ -1,0 +1,382 @@
+---
+import { brainRenderer } from "@/data/brain-renderer";
+import { brainIntro, brainRegions, brainSources } from "@/data/brain";
+---
+
+<section
+  class="brain-model"
+  aria-labelledby="brain-heading"
+  data-brain-model
+  data-renderer={brainRenderer}
+>
+  <div class="brain-model__heading">
+    <h2 id="brain-heading">{brainIntro.title}</h2>
+  </div>
+  <p class="brain-model__note brain-model__intro">{brainIntro.note}</p>
+  <div class="brain-renderer">
+    <div class="brain-visual">
+      <div class="brain-3d" data-brain-3d hidden></div>
+      <svg
+        class="brain-diagram"
+        viewBox="0 0 420 290"
+        width="420"
+        height="290"
+        role="img"
+        aria-labelledby="brain-title brain-description"
+      >
+        <title id="brain-title">
+          Six regions of the brain — left lateral view
+        </title>
+        <desc id="brain-description">{brainIntro.diagramDescription}</desc>
+        <g class="brain-region" data-brain-region="brainstem">
+          <path
+            class="brain-region__shape"
+            d="M224 202 Q246 195 269 210 L266 232 Q269 251 282 270 L255 274 Q241 253 237 241 Q221 233 224 202Z"
+          ></path>
+          <path
+            class="brain-fold"
+            d="M234 216 Q248 219 263 216 M239 228 Q247 232 265 230 M249 241 L265 262"
+          ></path>
+        </g>
+        <g class="brain-region" data-brain-region="cerebellum">
+          <path
+            class="brain-region__shape"
+            d="M285 198 Q322 184 356 198 Q385 207 382 228 Q377 255 343 261 Q312 268 282 248 Q267 240 269 224 Q270 209 285 198Z"
+          ></path>
+          <path
+            class="brain-fold"
+            d="M283 216 Q326 191 368 215 M279 225 Q325 201 371 223 M280 233 Q325 211 371 232 M290 242 Q329 222 364 240 M307 250 Q335 236 350 249 M325 202 Q312 226 325 253"
+          ></path>
+        </g>
+        <g class="brain-region" data-brain-region="frontal">
+          <path
+            class="brain-region__shape"
+            d="M209 36 C175 21 134 30 113 41 C80 42 52 68 45 89 C26 109 24 133 35 150 C33 170 53 182 77 179 Q108 169 137 165 Q167 157 195 154 L219 143 Q213 127 199 114 Q187 102 198 85 Q210 66 209 36Z"
+          ></path>
+          <path
+            class="brain-fold"
+            d="M196 44 Q176 40 168 55 Q166 66 152 67 Q127 65 117 84 M111 48 Q95 57 100 70 Q105 81 92 90 Q79 101 88 113 M66 78 Q55 98 68 108 Q79 119 68 132 Q56 143 47 139 M42 153 Q59 164 73 151 Q86 138 104 145 M91 125 Q110 119 119 133 Q124 144 143 142 M123 52 Q137 41 151 49 M137 84 Q154 79 163 93 Q170 103 183 99 M112 101 Q127 94 138 108 Q148 121 166 116 Q181 113 190 130 M158 133 Q172 139 183 145 M181 62 Q193 70 183 84"
+          ></path>
+        </g>
+        <g class="brain-region" data-brain-region="parietal">
+          <path
+            class="brain-region__shape"
+            d="M209 36 C234 25 268 35 291 45 C316 47 338 68 349 92 Q331 99 322 117 L307 154 Q263 148 219 143 Q213 127 199 114 Q187 102 198 85 Q210 66 209 36Z"
+          ></path>
+          <path
+            class="brain-fold"
+            d="M222 47 Q222 62 213 74 Q203 87 213 98 M240 44 Q259 44 264 57 Q269 70 284 66 Q301 61 316 78 M231 78 Q247 67 256 80 Q262 92 279 90 M224 111 Q230 94 243 101 Q254 110 266 105 M282 119 Q271 129 258 120 Q245 111 241 135 M293 80 Q305 87 300 100 Q295 113 310 118 M218 126 L226 133 M321 85 L331 91"
+          ></path>
+        </g>
+        <g class="brain-region" data-brain-region="occipital">
+          <path
+            class="brain-region__shape"
+            d="M349 92 C373 110 389 126 389 150 C394 170 381 188 362 196 Q340 204 320 187 L307 154 L322 117 Q331 99 349 92Z"
+          ></path>
+          <path
+            class="brain-fold"
+            d="M350 108 Q335 113 338 128 Q343 143 327 146 M365 122 Q375 134 365 146 Q355 156 374 167 M336 160 Q346 149 352 161 Q355 175 365 180 M329 179 Q340 188 350 184"
+          ></path>
+        </g>
+        <g class="brain-region" data-brain-region="temporal">
+          <path
+            class="brain-region__shape"
+            d="M77 179 Q108 169 137 165 Q167 157 195 154 L219 143 Q263 148 307 154 L320 187 Q300 202 271 207 Q248 213 227 222 Q201 233 173 228 C139 237 111 220 95 210 Q80 201 77 179Z"
+          ></path>
+          <path
+            class="brain-fold"
+            d="M96 184 Q120 176 138 184 Q151 191 168 180 Q183 170 202 174 Q219 179 235 165 M104 198 Q120 207 137 200 Q151 194 166 204 Q179 213 199 201 Q215 192 228 198 Q240 204 256 191 M143 215 Q155 222 166 216 M213 213 Q228 207 238 211 M259 166 Q279 176 298 167 M271 190 L294 181"
+          ></path>
+        </g>
+        <g class="brain-diagram__orientation" aria-hidden="true">
+          <text x="31" y="265">Front</text><path d="M68 261h34m-29-4-5 4 5 4"
+          ></path>
+          <text x="389" y="282" text-anchor="end">Back</text>
+        </g>
+      </svg>
+    </div><div class="brain-tools-slot">
+      <div class="brain-3d-tools" hidden>
+        <span>Drag to rotate · arrow keys</span><button
+          type="button"
+          data-brain-reset>Reset view</button
+        >
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="brain-controls"
+    role="group"
+    aria-label="Select a brain region"
+    hidden
+  >
+    {
+      brainRegions.map((region, index) => (
+        <button
+          type="button"
+          data-region-select={region.id}
+          aria-pressed="false"
+          aria-controls="brain-panel"
+        >
+          <span class="brain-controls__number" aria-hidden="true">
+            {String(index + 1).padStart(2, "0")}
+          </span>
+          {region.label}
+        </button>
+      ))
+    }
+  </div>
+  <div class="brain-panel" id="brain-panel" hidden>
+    <p data-brain-prompt>{brainIntro.instruction}</p>
+    <div data-brain-selection hidden>
+      <div class="brain-panel__heading">
+        <h3 data-brain-label></h3>
+        <button
+          type="button"
+          class="brain-clear"
+          data-brain-clear
+          aria-label="Clear brain region selection"
+          >Clear <span aria-hidden="true">×</span></button
+        >
+      </div>
+      <div data-brain-content></div>
+    </div>
+  </div>
+  <p
+    class="sr-only"
+    role="status"
+    aria-live="polite"
+    aria-atomic="true"
+    data-brain-status
+  >
+  </p>
+
+  <details class="brain-text-alternative">
+    <summary>Read all regions</summary>
+    <p class="brain-text-alternative__intro">{brainIntro.diagramDescription}</p>
+    {
+      brainRegions.map((region) => (
+        <section aria-labelledby={`brain-text-${region.id}`}>
+          <h3 id={`brain-text-${region.id}`}>{region.label}</h3>
+          <div data-region-content={region.id}>
+            <dl>
+              <dt>What this region does</dt>
+              <dd>{region.function}</dd>
+              <dt>How this relates to my work</dt>
+              <dd>{region.association}</dd>
+            </dl>
+            <p class="brain-sources">
+              Sources:{" "}
+              {region.sources.map((key, index) => (
+                <>
+                  <span>{index > 0 ? " · " : ""}</span>
+                  <a href={brainSources[key].href}>{brainSources[key].label}</a>
+                </>
+              ))}
+            </p>
+          </div>
+          <p class="brain-attribution">
+            3D anatomy:{" "}
+            <a href="https://www.openanatomy.org/atlas-pages/atlas-spl-nac-brain.html">
+              SPL/NAC Brain Atlas
+            </a>{" "}
+            · <a href="/brain/LICENSE.txt">3D Slicer license</a>. Simplified
+            regional grouping.
+          </p>
+        </section>
+      ))
+    }
+  </details>
+  <p class="brain-attribution">
+    3D anatomy: <a
+      href="https://www.openanatomy.org/atlas-pages/atlas-spl-nac-brain.html"
+      >SPL/NAC Brain Atlas</a
+    > · <a href="/brain/LICENSE.txt">3D Slicer license</a>. Simplified regional
+    grouping.
+  </p>
+</section>
+
+<script>
+  import type { BrainRegionId } from "@/data/brain";
+  import type { BrainView } from "@/scripts/brain-3d";
+  const model = document.querySelector<HTMLElement>("[data-brain-model]");
+  if (model) {
+    const controls = model.querySelector<HTMLElement>(".brain-controls")!;
+    const buttons = [
+      ...model.querySelectorAll<HTMLButtonElement>("[data-region-select]"),
+    ];
+    const regions = [
+      ...model.querySelectorAll<SVGGElement>("[data-brain-region]"),
+    ];
+    const panel = model.querySelector<HTMLElement>(".brain-panel")!;
+    const prompt = model.querySelector<HTMLElement>("[data-brain-prompt]")!;
+    const selection = model.querySelector<HTMLElement>(
+      "[data-brain-selection]",
+    )!;
+    const label = model.querySelector<HTMLElement>("[data-brain-label]")!;
+    const content = model.querySelector<HTMLElement>("[data-brain-content]")!;
+    const status = model.querySelector<HTMLElement>("[data-brain-status]")!;
+    let selectedButton: HTMLButtonElement | undefined;
+    let view: BrainView | undefined;
+    let generation = 0;
+    let loading = false;
+    let requestController: AbortController | undefined;
+    let inView = false;
+    let failed = false;
+    const host = model.querySelector<HTMLElement>("[data-brain-3d]")!;
+    const diagram = model.querySelector<SVGElement>(".brain-diagram")!;
+    const tools = model.querySelector<HTMLElement>(".brain-3d-tools")!;
+    const fallback = () => {
+      const restoreFocus = host.contains(document.activeElement);
+      failed = true;
+      view?.dispose();
+      view = undefined;
+      host.hidden = true;
+      tools.hidden = true;
+      diagram.style.display = "";
+      model.dataset.rendered = "2d";
+      if (restoreFocus) (selectedButton ?? buttons[0])?.focus();
+    };
+    host.addEventListener("brain-renderer-failed", fallback);
+    model
+      .querySelector("[data-brain-reset]")
+      ?.addEventListener("click", () => view?.reset());
+    const enhance = async () => {
+      if (
+        model.dataset.renderer !== "3d" ||
+        mobile.matches ||
+        !inView ||
+        view ||
+        loading ||
+        failed
+      )
+        return;
+      loading = true;
+      const ticket = ++generation;
+      requestController = new AbortController();
+      try {
+        const { createBrainView } = await import("@/scripts/brain-3d");
+        if (mobile.matches || ticket !== generation) return;
+        host.hidden = false;
+        const created = await createBrainView(
+          host,
+          (id) => {
+            const button = buttons.find((b) => b.dataset.regionSelect === id);
+            if (button) {
+              select(button);
+              button.focus({ preventScroll: true });
+            }
+          },
+          requestController.signal,
+        );
+        if (mobile.matches || ticket !== generation) {
+          created.dispose();
+          host.hidden = true;
+          return;
+        }
+        view = created;
+        view.select(
+          (selectedButton?.dataset.regionSelect as BrainRegionId) ?? null,
+        );
+        diagram.style.display = "none";
+        tools.hidden = false;
+        model.dataset.rendered = "3d";
+      } catch {
+        if (ticket === generation && !mobile.matches) fallback();
+      } finally {
+        loading = false;
+        if (ticket !== generation && !mobile.matches) void enhance();
+      }
+    };
+
+    const select = (button: HTMLButtonElement) => {
+      const id = button.dataset.regionSelect;
+      const source = model.querySelector<HTMLElement>(
+        `[data-region-content="${id}"]`,
+      );
+      if (!source) return;
+      selectedButton = button;
+      view?.select(id as BrainRegionId);
+      buttons.forEach((item) =>
+        item.setAttribute("aria-pressed", String(item === button)),
+      );
+      regions.forEach((region) =>
+        region.classList.toggle(
+          "is-selected",
+          region.dataset.brainRegion === id,
+        ),
+      );
+      label.textContent =
+        button.textContent?.replace(/^\s*\d+\s*/, "").trim() ?? "";
+      content.replaceChildren(
+        ...[...source.childNodes].map((node) => node.cloneNode(true)),
+      );
+      prompt.hidden = true;
+      selection.hidden = false;
+      panel.scrollIntoView({ block: "nearest", behavior: "instant" });
+      status.textContent = `${label.textContent} selected. ${source.querySelector("dd")?.textContent} ${source.querySelectorAll("dd")[1]?.textContent}`;
+    };
+    const clear = () => {
+      if (!selectedButton) return;
+      const previous = selectedButton;
+      selectedButton = undefined;
+      view?.select(null);
+      buttons.forEach((button) => button.setAttribute("aria-pressed", "false"));
+      regions.forEach((region) => region.classList.remove("is-selected"));
+      selection.hidden = true;
+      content.replaceChildren();
+      prompt.hidden = false;
+      status.textContent = "Selection cleared. Choose another region.";
+      previous.focus();
+    };
+    buttons.forEach((button) =>
+      button.addEventListener("click", () => select(button)),
+    );
+    regions.forEach((region) =>
+      region.addEventListener("click", () => {
+        const button = buttons.find(
+          (item) => item.dataset.regionSelect === region.dataset.brainRegion,
+        );
+        if (button) {
+          select(button);
+          button.focus({ preventScroll: true });
+        }
+      }),
+    );
+    model.querySelector("[data-brain-clear]")?.addEventListener("click", clear);
+    model.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && selectedButton) {
+        event.preventDefault();
+        event.stopPropagation();
+        clear();
+      }
+    });
+    const mobile = window.matchMedia("(max-width: 720px)");
+    const updateVisibility = () => {
+      if (mobile.matches && model.contains(document.activeElement)) {
+        clear();
+        document.querySelector<HTMLAnchorElement>(".hero__actions a")?.focus();
+      }
+      if (mobile.matches) {
+        generation++;
+        requestController?.abort();
+        view?.dispose();
+        view = undefined;
+        host.hidden = true;
+        tools.hidden = true;
+        diagram.style.display = "";
+      } else setTimeout(() => void enhance(), 800);
+      controls.hidden = mobile.matches;
+      panel.hidden = mobile.matches;
+      if (mobile.matches) delete model.dataset.enhanced;
+      else model.dataset.enhanced = "true";
+    };
+    mobile.addEventListener("change", updateVisibility);
+    // The SVG is immediate; load the 3D enhancement only when a desktop model is visible.
+    new IntersectionObserver((entries) => {
+      inView = entries[0]?.isIntersecting ?? false;
+      if (inView) void enhance();
+    }).observe(model);
+    updateVisibility();
+  }
+</script>

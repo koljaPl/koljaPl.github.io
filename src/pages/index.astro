@@ -1,0 +1,242 @@
+---
+import { getCollection } from "astro:content";
+import StatsStrip from "@/components/StatsStrip.astro";
+import BrainModel from "@/components/BrainModel.astro";
+import ContentNeeded from "@/components/ContentNeeded.astro";
+import Icon from "@/components/Icon.astro";
+import Portrait from "@/components/Portrait.astro";
+import ProjectCard from "@/components/ProjectCard.astro";
+import SectionHeading from "@/components/SectionHeading.astro";
+import {
+  contactReasons,
+  experience,
+  knownEngineeringAreas,
+  profile,
+  personalContext,
+  socialLinks,
+  timeline,
+} from "@/data/site";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const projects = (await getCollection("projects"))
+  .filter((project) => project.data.featured)
+  .sort((a, b) => a.data.order - b.data.order);
+const configuredSocials = socialLinks.filter(
+  (link) => link.kind === "github" && link.href,
+);
+const statement =
+  profile.tagline.value ??
+  `Working across ${profile.areas
+    .slice(0, -1)
+    .map((area) => area.toLowerCase())
+    .join(", ")}, and ${profile.areas.at(-1)?.toLowerCase()}.`;
+const statementParts = statement.split(
+  /(software engineering|algorithms|olympiad|machine learning)/gi,
+);
+const phraseColors: Record<string, string> = {
+  "software engineering": "blue",
+  algorithms: "red",
+  olympiad: "yellow",
+  "machine learning": "emerald",
+};
+---
+
+<BaseLayout>
+  <section class="hero section-shell">
+    <div class="container hero__inner">
+      <div class="hero__copy">
+        <div class="hero__eyebrow">
+          <span>{personalContext.heroEyebrow}</span>
+        </div>
+        <h1 class="identity-name" aria-label={profile.name}>
+          <span aria-hidden="true"
+            >{
+              [...profile.name].map((letter, index) => (
+                <span
+                  style={`--letter:${index};--letter-color:var(--identity-${["blue", "red", "yellow", "green"][index % 4]})`}
+                >
+                  {letter === " " ? "\u00a0" : letter}
+                </span>
+              ))
+            }</span
+          >
+        </h1>
+        <p class="hero__statement">
+          {
+            statementParts.map((part) =>
+              phraseColors[part.toLowerCase()] ? (
+                <span
+                  class={`hand-underline hand-underline--${phraseColors[part.toLowerCase()]}`}
+                >
+                  {part}
+                </span>
+              ) : (
+                part
+              ),
+            )
+          }
+        </p>
+        <div class="hero__actions">
+          <a class="button button--primary" href="/projects/"
+            >View Projects <Icon name="arrow" size={18} /></a
+          >
+          <a class="button button--secondary" href="/contact/">Contact Me</a>
+          <a class="button button--tertiary" href="/resume/">Résumé</a>
+        </div>
+        {
+          configuredSocials.length > 0 && (
+            <div
+              class="hero__secondary-links"
+              aria-label="Additional destinations"
+            >
+              {configuredSocials.map((link) => (
+                <a
+                  class="button button--secondary hero-github"
+                  href={link.href!}
+                  rel="me noreferrer"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          )
+        }
+        <ol class="hero__disciplines" aria-label="Technical areas">
+          {
+            profile.areas.map((area, index) => (
+              <li
+                class={`accent-${["blue", "red", "yellow", "green"][index % 4]}`}
+              >
+                <span>{area}</span>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+      <BrainModel />
+    </div>
+  </section>
+
+  <section class="home-about section-shell" aria-labelledby="about-heading">
+    <div class="container home-about__grid">
+      <div class="home-about__portrait"><Portrait /></div>
+      <div class="home-about__content">
+        <p class="technical-label">About me</p>
+        <h2 id="about-heading">
+          Curiosity across the stack, precision in the details.
+        </h2>
+        <p class="large-copy">
+          {personalContext.homeIntroduction}
+        </p>
+        <ContentNeeded compact title={personalContext.homeMotto} />
+        <a class="text-link text-link--arrow" href="/about/"
+          >More about me <Icon name="arrow" size={18} /></a
+        >
+      </div>
+    </div>
+    <div class="container"><StatsStrip /></div>
+  </section>
+
+  <section
+    class="home-projects section-shell"
+    aria-labelledby="projects-heading"
+  >
+    <div class="container">
+      <SectionHeading
+        eyebrow="Selected projects"
+        title="Work with room for the engineering story."
+        description="Some of my favorite projects so far"
+        href="/projects/"
+        linkLabel="All projects"
+      />
+      <div class="project-grid">
+        {
+          projects.map((project, index) => (
+            <ProjectCard project={project} index={index} />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section
+    class="home-experience section-shell"
+    aria-labelledby="experience-heading"
+  >
+    <div class="container home-experience__grid">
+      <div>
+        <p class="technical-label">Experience</p>
+        <h2 id="experience-heading">Technical breadth, backed by evidence.</h2>
+        <p class="large-copy">
+          {
+            experience[0]?.summary ??
+              (timeline.length > 0
+                ? "Selected milestones provide a compact view of Nicklas's technical path."
+                : "I mainly work as a research engineer, but I also enjoy competitive programming and programming contests, ML, AI, and software. I love programming :)")
+          }
+        </p>
+        <a class="text-link text-link--arrow" href="/experience/"
+          >Experience and skills <Icon name="arrow" size={18} /></a
+        >
+      </div>
+      {
+        timeline.length > 0 ? (
+          <ol class="home-timeline-list">
+            {timeline.slice(0, 4).map((entry) => (
+              <li class={`accent-${entry.accent}`}>
+                <time>{entry.date}</time>
+                <span>{entry.title}</span>
+                <span class="accent-node" aria-hidden="true" />
+              </li>
+            ))}
+          </ol>
+        ) : experience.length > 0 ? (
+          <ol class="home-timeline-list">
+            {experience.slice(0, 4).map((entry, index) => (
+              <li
+                class={`accent-${["blue", "red", "yellow", "green"][index % 4]}`}
+              >
+                <time>{entry.startDate}</time>
+                <span>
+                  {entry.role} · {entry.organization}
+                </span>
+                <span class="accent-node" aria-hidden="true" />
+              </li>
+            ))}
+          </ol>
+        ) : (
+          <ol class="engineering-area-list">
+            {knownEngineeringAreas.map((area) => (
+              <li class={`accent-${area.accent}`}>
+                <span class="engineering-area-list__index">{area.index}</span>
+                <span>{area.title}</span>
+                <span class="accent-node" />
+              </li>
+            ))}
+          </ol>
+        )
+      }
+    </div>
+  </section>
+
+  <section class="home-contact section-shell" aria-labelledby="contact-heading">
+    <div class="container home-contact__inner">
+      <div>
+        <p class="technical-label">Contact</p>
+        <h2 id="contact-heading">A clear way to start a conversation.</h2>
+        <p>
+          {
+            contactReasons.length > 0
+              ? `Reach out about ${contactReasons.map((reason) => reason.title).join(", ")}.`
+              : profile.email.value
+                ? "A public email channel is available for direct contact."
+                : "Feel free to message me if you want to ask a question, make a suggestion, or just chat. :)"
+          }
+        </p>
+      </div>
+      <a class="button button--primary" href="/contact/"
+        >Contact ME <Icon name="arrow" size={18} /></a
+      >
+    </div>
+  </section>
+</BaseLayout>

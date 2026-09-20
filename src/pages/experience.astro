@@ -1,0 +1,185 @@
+---
+import ContentNeeded from "@/components/ContentNeeded.astro";
+import PageIntro from "@/components/PageIntro.astro";
+import {
+  competitions,
+  experience,
+  knownEngineeringAreas,
+  skills,
+  timeline,
+} from "@/data/site";
+import { pagePublication } from "@/data/publication";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const hasAreaEvidence = experience.length > 0 || skills.length > 0;
+---
+
+<BaseLayout
+  title="Experience"
+  description="Experience, technical areas, and evidence of practice across Nicklas Plugin's engineering work."
+  noindex={!pagePublication.experience}
+>
+  <div class="page-shell section-shell">
+    <div class="container">
+      <PageIntro
+        eyebrow="Experience / Evidence"
+        title="Technical range without arbitrary scores."
+        description="Roles, projects, and problem-solving work belong together here: the emphasis is on what was built, decided, and learned—not percentages or proficiency bars."
+      />
+
+      <section class="experience-areas" aria-labelledby="areas-heading">
+        <div class="experience-areas__heading">
+          <p class="technical-label">Areas of practice</p>
+          <h2 id="areas-heading">Breadth, organized by the work.</h2>
+        </div>
+        <ol>
+          {
+            knownEngineeringAreas.map((area) => (
+              <li class={`accent-${area.accent}`}>
+                <span class="experience-areas__index">{area.index}</span>
+                <div>
+                  <h3>{area.title}</h3>
+                  <p>
+                    {hasAreaEvidence
+                      ? "Related evidence is organized in the sections below."
+                      : area.description}
+                  </p>
+                </div>
+                {!hasAreaEvidence && (
+                  <span class="status-label">Evidence pending</span>
+                )}
+              </li>
+            ))
+          }
+        </ol>
+      </section>
+
+      <div class="experience-sections">
+        {
+          timeline.length > 0 && (
+            <section aria-labelledby="experience-timeline-heading">
+              <div class="experience-section-heading">
+                <p class="technical-label">Selected milestones</p>
+                <h2 id="experience-timeline-heading">A concise chronology.</h2>
+              </div>
+              <ol class="timeline-list">
+                {timeline.map((entry) => (
+                  <li class={`accent-${entry.accent}`}>
+                    <time>{entry.date}</time>
+                    <div>
+                      <h3>{entry.title}</h3>
+                      <p>{entry.description}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </section>
+          )
+        }
+
+        <section aria-labelledby="roles-heading">
+          <div class="experience-section-heading">
+            <p class="technical-label">Roles and work</p>
+            <h2 id="roles-heading">Experience</h2>
+          </div>
+          {
+            experience.length > 0 ? (
+              <ol class="experience-list">
+                {experience.map((entry) => (
+                  <li>
+                    <div class="experience-list__date">
+                      <time>{entry.startDate}</time>
+                      <span>—</span>
+                      <time>{entry.endDate ?? "Present"}</time>
+                    </div>
+                    <div>
+                      <h3>{entry.role}</h3>
+                      <p class="experience-list__organization">
+                        {entry.organization}
+                      </p>
+                      <p>{entry.summary}</p>
+                      {entry.highlights.length > 0 && (
+                        <ul>
+                          {entry.highlights.map((highlight) => (
+                            <li>{highlight}</li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            ) : (
+              <ContentNeeded title="Employment, education, open-source roles, and dates have not yet been supplied." />
+            )
+          }
+        </section>
+
+        <section aria-labelledby="skills-heading">
+          <div class="experience-section-heading">
+            <p class="technical-label">Tools and methods</p>
+            <h2 id="skills-heading">Skills, grouped by context.</h2>
+          </div>
+          {
+            skills.length > 0 ? (
+              <div class="skill-groups">
+                {skills.map((group) => (
+                  <section>
+                    <h3>{group.title}</h3>
+                    <ul class="tag-list">
+                      {group.skills.map((skill) => (
+                        <li>{skill}</li>
+                      ))}
+                    </ul>
+                  </section>
+                ))}
+              </div>
+            ) : (
+              <ContentNeeded title="Technologies, methods, and project evidence have not yet been supplied." />
+            )
+          }
+        </section>
+
+        <section aria-labelledby="competition-heading">
+          <div class="experience-section-heading">
+            <p class="technical-label">Algorithms and competitions</p>
+            <h2 id="competition-heading">
+              Competitive and olympiad programming.
+            </h2>
+          </div>
+          {
+            competitions.length > 0 ? (
+              <ol class="competition-list">
+                {competitions.map((entry) => (
+                  <li>
+                    <div>
+                      <h3>{entry.name}</h3>
+                      {entry.date && <time>{entry.date}</time>}
+                      {entry.result && (
+                        <p class="competition-list__result">{entry.result}</p>
+                      )}
+                    </div>
+                    <p>{entry.summary}</p>
+                    {entry.links.length > 0 && (
+                      <ul>
+                        {entry.links.map((link) => (
+                          <li>
+                            <a href={link.href} rel="noreferrer">
+                              {link.label}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </li>
+                ))}
+              </ol>
+            ) : (
+              <ContentNeeded title="Competitions, dates, placements, topics, and representative solutions have not yet been supplied." />
+            )
+          }
+        </section>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

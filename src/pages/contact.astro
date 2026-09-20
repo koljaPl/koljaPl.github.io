@@ -1,0 +1,125 @@
+---
+import ContentNeeded from "@/components/ContentNeeded.astro";
+import Icon from "@/components/Icon.astro";
+import PageIntro from "@/components/PageIntro.astro";
+import { contactReasons, profile, socialLinks } from "@/data/site";
+import { pagePublication } from "@/data/publication";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const socialDestinations = socialLinks.filter((link) => link.kind !== "email");
+const email = profile.email.value;
+---
+
+<BaseLayout
+  title="Contact"
+  description="Contact Me and find my public profiles."
+  noindex={!pagePublication.contact}
+>
+  <div class="page-shell section-shell">
+    <div class="container">
+      <PageIntro
+        eyebrow="Contact / Open channel"
+        title="Start with a direct note."
+        description="There is no form or hidden backend here. I'm not a closed person-feel free to message me whenever you want"
+      />
+
+      <div class="contact-layout">
+        <section class="contact-primary" aria-labelledby="email-heading">
+          <p class="technical-label">Email</p>
+          <h2 id="email-heading">The simplest way to reach Nicklas.</h2>
+          {
+            email ? (
+              <div class="email-action">
+                <a href={`mailto:${email}`}>{email}</a>
+                <button
+                  class="icon-button"
+                  type="button"
+                  data-copy-email={email}
+                  aria-label="Copy email address"
+                >
+                  <Icon name="copy" size={18} />
+                  <span>Copy</span>
+                </button>
+                <span class="copy-status" role="status" aria-live="polite" />
+              </div>
+            ) : (
+              <ContentNeeded compact title={profile.email.placeholder} />
+            )
+          }
+        </section>
+
+        <section class="social-destinations" aria-labelledby="social-heading">
+          <p class="technical-label">Elsewhere</p>
+          <h2 id="social-heading">Public profiles.</h2>
+          <ul>
+            {
+              socialDestinations.map((link) => (
+                <li>
+                  {link.href ? (
+                    <a href={link.href} rel="me noreferrer">
+                      <span>{link.label}</span>
+                      <Icon name="external" size={18} />
+                    </a>
+                  ) : (
+                    <div aria-label={`${link.label}: URL not yet supplied`}>
+                      <span>{link.label}</span>
+                      <span class="status-label">URL needed</span>
+                    </div>
+                  )}
+                </li>
+              ))
+            }
+          </ul>
+        </section>
+      </div>
+
+      <section class="contact-reasons" aria-labelledby="reasons-heading">
+        <div>
+          <p class="technical-label">Good reasons to write</p>
+          <h2 id="reasons-heading">What to get in touch about.</h2>
+        </div>
+        {
+          contactReasons.length > 0 ? (
+            <ul>
+              {contactReasons.map((reason) => (
+                <li class={`accent-${reason.accent}`}>
+                  <span class="accent-node" aria-hidden="true" />
+                  <h3>{reason.title}</h3>
+                  <p>{reason.description}</p>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <ContentNeeded
+              compact
+              title="Feel free to write to me if you want to learn more about me, ask me to be friends, ask me anything, just chat, or suggest a job or business opportunity. In any case, I’ll listen to you very carefully."
+            />
+          )
+        }
+      </section>
+    </div>
+  </div>
+
+  <script>
+    const copyButton =
+      document.querySelector<HTMLButtonElement>("[data-copy-email]");
+    const copyStatus = document.querySelector<HTMLElement>(".copy-status");
+
+    copyButton?.addEventListener("click", async () => {
+      const value = copyButton.dataset.copyEmail;
+      if (!value) return;
+      try {
+        await navigator.clipboard.writeText(value);
+        copyStatus && (copyStatus.textContent = "Copied");
+        copyButton.querySelector("span")!.textContent = "Copied";
+        window.setTimeout(() => {
+          copyStatus && (copyStatus.textContent = "");
+          copyButton.querySelector("span")!.textContent = "Copy";
+        }, 1800);
+      } catch {
+        copyStatus &&
+          (copyStatus.textContent = "Copy failed. Select the address instead.");
+      }
+    });
+  </script>
+</BaseLayout>

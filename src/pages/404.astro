@@ -1,0 +1,31 @@
+---
+import AccentMark from "@/components/AccentMark.astro";
+import Icon from "@/components/Icon.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Page not found"
+  description="The requested page could not be found."
+  noindex
+  omitCanonical
+  socialImage={null}
+>
+  <section class="not-found section-shell">
+    <div class="container not-found__inner">
+      <div class="not-found__code" aria-hidden="true">
+        <span>4</span><AccentMark /><span>4</span>
+      </div>
+      <p class="technical-label">Route not found</p>
+      <h1>This path does not lead anywhere yet.</h1>
+      <p>The page may have moved, or the address may be incomplete.</p>
+      <div class="not-found__actions">
+        <a class="button button--primary" href="/"
+          >Return home <Icon name="arrow" size={18} /></a
+        >
+        <a class="button button--secondary" href="/projects/">Browse projects</a
+        >
+      </div>
+    </div>
+  </section>
+</BaseLayout>

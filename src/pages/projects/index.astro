@@ -1,0 +1,87 @@
+---
+import { getCollection } from "astro:content";
+import ContentNeeded from "@/components/ContentNeeded.astro";
+import Satellite from "@/components/Satellite.astro";
+import PageIntro from "@/components/PageIntro.astro";
+import ProjectCard from "@/components/ProjectCard.astro";
+import githubCacheJson from "@/data/generated/github.json";
+import type { GitHubMetadataCache } from "@/data/types";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const projects = (await getCollection("projects")).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+const githubCache = githubCacheJson as GitHubMetadataCache;
+const repositories = Object.entries(githubCache.repositories).sort(([a], [b]) =>
+  a.localeCompare(b),
+);
+---
+
+<BaseLayout
+  title="Projects"
+  description="Selected software engineering, open-source, algorithmic, and machine-learning work by Nicklas Plugin."
+>
+  <div class="page-shell section-shell">
+    <div class="container">
+      <div class="projects-intro">
+        <PageIntro
+          eyebrow="Projects / 01—04"
+          title="Engineering work, presented with the decisions intact."
+          description="A project should show more than its output. These case studies are structured around the problem, architecture, implementation, tradeoffs, and what changed as a result."
+        />
+
+        <Satellite />
+      </div>
+      <section
+        class="project-grid project-grid--index"
+        aria-labelledby="project-cases-heading"
+      >
+        <h2 id="project-cases-heading" class="sr-only">Project case studies</h2>
+        {
+          projects.map((project, index) => (
+            <ProjectCard project={project} index={index} />
+          ))
+        }
+      </section>
+
+      <section
+        class="open-source-summary"
+        aria-labelledby="open-source-heading"
+      >
+        <div class="open-source-summary__copy">
+          <p class="technical-label">Open-source signal</p>
+          <h2 id="open-source-heading">Repository facts, kept resilient.</h2>
+          <p>
+            Public repository metadata is refreshed at build time and retained
+            in a checked-in last-known-good cache, so a temporary API failure
+            cannot make the site incomplete. Sorry if it happened :(
+          </p>
+        </div>
+        {
+          repositories.length > 0 ? (
+            <ul class="repository-list">
+              {repositories.map(([key, repository]) => (
+                <li>
+                  <a href={repository.repositoryUrl} rel="noreferrer">
+                    <span>{key}</span>
+                    <span class="repository-list__facts">
+                      {repository.primaryLanguage && (
+                        <span>{repository.primaryLanguage}</span>
+                      )}
+                      <span>{repository.stars} stars</span>
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <ContentNeeded
+              compact
+              title="Repository URLs have not yet been configured for metadata synchronization."
+            />
+          )
+        }
+      </section>
+    </div>
+  </div>
+</BaseLayout>

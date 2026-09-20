@@ -1,0 +1,24 @@
+---
+import { Picture } from "astro:assets";
+import portrait from "../../photos/portrait.jpg";
+import { profile } from "@/data/site";
+
+interface Props {
+  eager?: boolean;
+}
+
+const { eager = false } = Astro.props;
+---
+
+<figure class="portrait-frame">
+  <Picture
+    src={portrait}
+    widths={[256, 384, 512]}
+    sizes="(max-width: 720px) 72vw, 280px"
+    formats={["avif", "webp"]}
+    alt={profile.portraitAlt}
+    loading={eager ? "eager" : "lazy"}
+    fetchpriority={eager ? "high" : "auto"}
+  />
+  <span class="portrait-frame__detail" aria-hidden="true"></span>
+</figure>

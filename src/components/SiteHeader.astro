@@ -1,0 +1,95 @@
+---
+import { accentNames } from "@/data/types";
+import { navigation, profile } from "@/data/site";
+import AccentMark from "./AccentMark.astro";
+import ThemeToggle from "./ThemeToggle.astro";
+
+const currentPath = Astro.url.pathname;
+const isCurrent = (href: string) =>
+  href === "/projects/"
+    ? currentPath.startsWith("/projects/")
+    : currentPath === href;
+---
+
+<header class="site-header" data-site-header>
+  <div class="site-header__inner container">
+    <a class="site-brand" href="/" aria-label={`${profile.name}, home`}>
+      <AccentMark compact />
+      <span>{profile.name}</span>
+    </a>
+
+    <div class="site-header__actions">
+      <nav class="desktop-navigation" aria-label="Primary navigation">
+        <ul>
+          {
+            navigation.map((item, index) => (
+              <li>
+                <a
+                  class={index < 4 ? `accent-${accentNames[index]}` : undefined}
+                  href={item.href}
+                  aria-current={isCurrent(item.href) ? "page" : undefined}
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+
+      <ThemeToggle />
+      <details class="mobile-navigation" data-mobile-navigation>
+        <summary aria-label="Navigation menu">
+          <span class="menu-icon" aria-hidden="true"><i></i><i></i></span>
+        </summary>
+        <nav class="mobile-navigation__panel" aria-label="Mobile navigation">
+          <ul>
+            {
+              navigation.map((item, index) => (
+                <li>
+                  <a
+                    class={
+                      index < 4 ? `accent-${accentNames[index]}` : undefined
+                    }
+                    href={item.href}
+                    aria-current={isCurrent(item.href) ? "page" : undefined}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </nav>
+      </details>
+    </div>
+  </div>
+</header>
+
+<script>
+  const mobileNavigation = document.querySelector<HTMLDetailsElement>(
+    "[data-mobile-navigation]",
+  );
+
+  mobileNavigation?.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      mobileNavigation.open = false;
+      mobileNavigation.querySelector<HTMLElement>("summary")?.focus();
+    }
+  });
+
+  mobileNavigation?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      mobileNavigation.open = false;
+    });
+  });
+
+  document.addEventListener("pointerdown", (event) => {
+    if (
+      !mobileNavigation?.open ||
+      mobileNavigation.contains(event.target as Node)
+    )
+      return;
+    mobileNavigation.open = false;
+  });
+</script>

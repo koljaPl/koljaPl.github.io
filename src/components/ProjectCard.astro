@@ -1,0 +1,113 @@
+---
+import type { CollectionEntry } from "astro:content";
+import githubCacheJson from "@/data/generated/github.json";
+import type { GitHubMetadataCache } from "@/data/types";
+import ProjectEvidence from "./ProjectEvidence.astro";
+import Icon from "./Icon.astro";
+
+interface Props {
+  project: CollectionEntry<"projects">;
+  index: number;
+}
+
+const { project, index } = Astro.props;
+const githubCache = githubCacheJson as GitHubMetadataCache;
+const metadata = project.data.repositoryKey
+  ? githubCache.repositories[project.data.repositoryKey]
+  : undefined;
+const number = String(index + 1).padStart(2, "0");
+const description =
+  project.data.shortDescription ??
+  "Description, technical detail, and project imagery have not yet been supplied.";
+const previewMedia =
+  project.data.screenshots.find((media) => media.src) ??
+  (project.data.customArtwork?.src ? project.data.customArtwork : null);
+const previewSrcSet = previewMedia
+  ? [
+      ...previewMedia.sources,
+      {
+        src: previewMedia.src!,
+        width: previewMedia.width!,
+        height: previewMedia.height!,
+      },
+    ]
+      .sort((a, b) => a.width - b.width)
+      .map((source) => `${source.src} ${source.width}w`)
+      .join(", ")
+  : undefined;
+---
+
+<article class={`project-card accent-${project.data.accent}`}>
+  <a
+    class="project-card__media"
+    href={`/projects/${project.data.slug}/`}
+    aria-label={`View ${project.data.name} case study`}
+  >
+    {
+      previewMedia ? (
+        <img
+          src={previewMedia.src!}
+          alt={previewMedia.alt}
+          width={previewMedia.width!}
+          height={previewMedia.height!}
+          srcset={previewSrcSet}
+          sizes="(max-width: 720px) calc(100vw - 2.5rem), (max-width: 1280px) calc((100vw - 5rem) / 2), 600px"
+          loading="lazy"
+          decoding="async"
+        />
+      ) : (
+        <div class="project-placeholder" aria-hidden="true">
+          <span class="project-placeholder__number">{number}</span>
+          <span class="project-placeholder__axis" />
+          <span class="project-placeholder__label">Project visual needed</span>
+        </div>
+      )
+    }
+  </a>
+  <div class="project-card__content">
+    <div class="project-card__meta">
+      <span class="accent-node"></span>
+      <span>{project.data.category}</span>
+      {metadata && <span>{metadata.stars} stars</span>}
+      {
+        project.data.status === "placeholder" && (
+          <span class="status-label">Details pending</span>
+        )
+      }
+    </div>
+    {
+      project.data.developmentStatus && (
+        <span class="status-label">{project.data.developmentStatus}</span>
+      )
+    }
+    <h3><a href={`/projects/${project.data.slug}/`}>{project.data.name}</a></h3>
+    <p>{description}</p>
+    {
+      project.data.technologies.length > 0 && (
+        <ul class="tag-list" aria-label={`${project.data.name} technologies`}>
+          {project.data.technologies.map((technology) => (
+            <li>{technology}</li>
+          ))}
+        </ul>
+      )
+    }
+    <ProjectEvidence repositoryKey={project.data.repositoryKey} compact />
+    <div class="project-card__links">
+      <a
+        class="text-link text-link--arrow"
+        href={`/projects/${project.data.slug}/`}
+      >
+        Case study <Icon name="arrow" size={18} />
+      </a>
+      {
+        project.data.links
+          .filter((link) => link.url)
+          .map((link) => (
+            <a class="text-link" href={link.url!} rel="noreferrer">
+              {link.label} <Icon name="external" size={16} />
+            </a>
+          ))
+      }
+    </div>
+  </div>
+</article>

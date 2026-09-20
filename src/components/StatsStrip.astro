@@ -1,0 +1,131 @@
+---
+import { stripEntries } from "@/data/account-stats";
+---
+
+{
+  stripEntries.length > 0 && (
+    <section
+      class="stats-strip"
+      data-stats-strip
+      aria-label="Account statistics snapshots"
+    >
+      <button
+        class="stats-strip__toggle"
+        type="button"
+        data-strip-toggle
+        aria-label="Pause scrolling"
+        hidden
+      >
+        <span aria-hidden="true">Ⅱ</span>
+      </button>
+      <ul class="stats-strip__static">
+        {stripEntries.map((entry) => (
+          <li class={`accent-${entry.accent}`}>
+            <a href={`/about/#account-${entry.accountId}`}>
+              <span class="accent-node" aria-hidden="true" />
+              <span>
+                {entry.platform}{" "}
+                {entry.handle && (
+                  <span class="stats-strip__handle"> / {entry.handle}</span>
+                )}
+              </span>
+              <span>
+                {entry.label.toLowerCase()} <strong>{entry.value}</strong>
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+      <div class="stats-strip__viewport" aria-hidden="true">
+        <div class="stats-strip__track">
+          {[0, 1].map(() => (
+            <div class="stats-strip__group">
+              {stripEntries.map((entry) => (
+                <a
+                  tabindex="-1"
+                  href={`/about/#account-${entry.accountId}`}
+                  class={`stats-strip__entry accent-${entry.accent}`}
+                >
+                  <span class="accent-node" />
+                  <span>
+                    {entry.platform}{" "}
+                    {entry.handle && (
+                      <span class="stats-strip__handle"> / {entry.handle}</span>
+                    )}
+                  </span>
+                  <span>
+                    {entry.label.toLowerCase()} <strong>{entry.value}</strong>
+                  </span>
+                </a>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+<script>
+  document
+    .querySelectorAll<HTMLElement>("[data-stats-strip]")
+    .forEach((strip) => {
+      const toggle = strip.querySelector<HTMLButtonElement>(
+        "[data-strip-toggle]",
+      );
+      const group = strip.querySelector<HTMLElement>(".stats-strip__group");
+      if (!toggle || !group) return;
+      const motion = matchMedia("(prefers-reduced-motion: reduce)");
+      let paused = false;
+      let inView = false;
+      let hovered = false;
+      const update = () => {
+        strip.dataset.paused = String(
+          paused ||
+            hovered ||
+            strip.contains(document.activeElement) ||
+            !inView ||
+            document.hidden,
+        );
+        strip.dataset.animated = String(!motion.matches);
+        toggle.hidden = motion.matches;
+        toggle.setAttribute(
+          "aria-label",
+          paused ? "Resume scrolling" : "Pause scrolling",
+        );
+        const icon = toggle.querySelector("span")!;
+        const symbol = paused ? "▷" : "Ⅱ";
+        if (icon.textContent !== symbol) icon.textContent = symbol;
+        if (motion.matches && document.activeElement === toggle)
+          strip.querySelector<HTMLAnchorElement>("a")?.focus();
+      };
+      toggle.addEventListener("click", () => {
+        paused = !paused;
+        update();
+      });
+      strip.addEventListener("pointerenter", (event) => {
+        if (event.pointerType === "mouse") {
+          hovered = true;
+          update();
+        }
+      });
+      strip.addEventListener("pointerleave", () => {
+        hovered = false;
+        update();
+      });
+      strip.addEventListener("focusin", update);
+      strip.addEventListener("focusout", () => queueMicrotask(update));
+      document.addEventListener("visibilitychange", update);
+      motion.addEventListener("change", update);
+      new IntersectionObserver((entries) => {
+        inView = entries[0]?.isIntersecting ?? false;
+        update();
+      }).observe(strip);
+      new ResizeObserver(() =>
+        strip.style.setProperty(
+          "--strip-duration",
+          `${Math.max(40, group.getBoundingClientRect().width / 24)}s`,
+        ),
+      ).observe(group);
+      update();
+    });
+</script>

@@ -1,0 +1,246 @@
+---
+import { getCollection, render, type CollectionEntry } from "astro:content";
+import ContentNeeded from "@/components/ContentNeeded.astro";
+import ProjectEvidence from "@/components/ProjectEvidence.astro";
+import Icon from "@/components/Icon.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+interface Props {
+  project: CollectionEntry<"projects">;
+  previous: CollectionEntry<"projects"> | null;
+  next: CollectionEntry<"projects"> | null;
+}
+
+export async function getStaticPaths() {
+  const projects = (await getCollection("projects")).sort(
+    (a, b) => a.data.order - b.data.order,
+  );
+
+  return projects.map((project, index) => ({
+    params: { slug: project.data.slug },
+    props: {
+      project,
+      previous: projects[index - 1] ?? null,
+      next: projects[index + 1] ?? null,
+    },
+  }));
+}
+
+const { project, previous, next } = Astro.props;
+const { Content, headings } = await render(project);
+const description =
+  project.data.seoDescription ??
+  project.data.shortDescription ??
+  `${project.data.name}, a project by Nicklas Plugin. Detailed project information is still being prepared.`;
+const isPublished = project.data.status === "published";
+const suppliedLinks = project.data.links.filter((link) => link.url);
+const suppliedMedia = [
+  ...project.data.screenshots.filter((media) => media.src),
+  ...(project.data.customArtwork?.src ? [project.data.customArtwork] : []),
+];
+const socialMedia = suppliedMedia[0];
+const socialMediaMetadata = socialMedia
+  ? {
+      socialImageWidth: socialMedia.width!,
+      socialImageHeight: socialMedia.height!,
+      socialImageAlt: socialMedia.alt,
+    }
+  : {};
+const mediaSrcSet = (
+  media: (typeof project.data.screenshots)[number],
+): string =>
+  [
+    ...media.sources,
+    { src: media.src!, width: media.width!, height: media.height! },
+  ]
+    .sort((a, b) => a.width - b.width)
+    .map((source) => `${source.src} ${source.width}w`)
+    .join(", ");
+const projectJsonLd = isPublished
+  ? {
+      "@context": "https://schema.org",
+      "@type": "SoftwareSourceCode",
+      name: project.data.name,
+      description,
+      author: { "@type": "Person", name: "Nicklas Plugin" },
+      codeRepository: suppliedLinks.find((link) => link.kind === "repository")
+        ?.url,
+      programmingLanguage:
+        project.data.technologies.length > 0
+          ? project.data.technologies
+          : undefined,
+    }
+  : undefined;
+---
+
+<BaseLayout
+  title={project.data.name}
+  description={description}
+  noindex={!isPublished}
+  pageType="article"
+  socialImage={socialMedia?.src ?? null}
+  {...socialMediaMetadata}
+  jsonLd={projectJsonLd}
+>
+  <article class={`case-study accent-${project.data.accent}`}>
+    <header class="case-study__header section-shell">
+      <div class="container">
+        <div class="case-study__kicker">
+          <a href="/projects/">Projects</a>
+          <span aria-hidden="true">/</span>
+          <span>{project.data.category}</span>
+          {!isPublished && <span class="status-label">Details pending</span>}
+        </div>
+        {
+          project.data.developmentStatus && (
+            <span class="status-label">{project.data.developmentStatus}</span>
+          )
+        }
+        <h1>{project.data.name}</h1>
+        <p class="case-study__lede">
+          {
+            project.data.longDescription ??
+              project.data.shortDescription ??
+              "The project narrative and technical summary have not yet been supplied."
+          }
+        </p>
+        {
+          suppliedLinks.length > 0 && (
+            <div class="case-study__actions">
+              {suppliedLinks.map((link) => (
+                <a
+                  class="button button--secondary"
+                  href={link.url!}
+                  rel="noreferrer"
+                >
+                  {link.label} <Icon name="external" size={17} />
+                </a>
+              ))}
+            </div>
+          )
+        }
+
+        <ProjectEvidence repositoryKey={project.data.repositoryKey} />
+        <dl class="case-study__facts">
+          <div>
+            <dt>Role</dt>
+            <dd>{project.data.role ?? "To be supplied"}</dd>
+          </div>
+          <div>
+            <dt>Technologies</dt>
+            <dd>{project.data.technologies.join(", ") || "To be supplied"}</dd>
+          </div>
+          <div>
+            <dt>Impact</dt>
+            <dd>{project.data.impact ?? "To be supplied"}</dd>
+          </div>
+        </dl>
+      </div>
+    </header>
+
+    <div class="container case-study__visual-wrap">
+      {
+        suppliedMedia.length > 0 ? (
+          <div class="case-study__media-grid">
+            {suppliedMedia.map((media) => (
+              <figure>
+                <img
+                  src={media.src!}
+                  alt={media.alt}
+                  width={media.width!}
+                  height={media.height!}
+                  srcset={mediaSrcSet(media)}
+                  sizes="(max-width: 1280px) calc(100vw - 2.5rem), 1240px"
+                  loading="lazy"
+                  decoding="async"
+                />
+                {media.caption && <figcaption>{media.caption}</figcaption>}
+              </figure>
+            ))}
+          </div>
+        ) : (
+          <div
+            class="case-study__visual-placeholder"
+            aria-label="Project imagery not yet supplied"
+          >
+            <span class="technical-label">Project visual</span>
+            <span>Screenshot or architecture diagram needed</span>
+          </div>
+        )
+      }
+    </div>
+
+    <div class="container case-study__body-grid">
+      <aside class="case-study__outline" aria-label="Case study outline">
+        <p class="technical-label">On this page</p>
+        {
+          headings.length > 0 ? (
+            <ol>
+              {headings
+                .filter((heading) => heading.depth <= 3)
+                .map((heading) => (
+                  <li>
+                    <a href={`#${heading.slug}`}>{heading.text}</a>
+                  </li>
+                ))}
+            </ol>
+          ) : (
+            <p>Sections will appear here when the case study is supplied.</p>
+          )
+        }
+      </aside>
+      <div class="case-study__content prose">
+        {
+          !isPublished && (
+            <ContentNeeded
+              title="This case study is an explicit content placeholder."
+              items={[
+                "Technical context and motivation",
+                "Architecture and engineering decisions",
+                "Implementation details and challenges",
+                "Results, impact, and lessons learned",
+                "Repository links and useful imagery",
+              ]}
+            />
+          )
+        }
+        <Content />
+      </div>
+    </div>
+
+    <nav
+      class="container case-study__pagination"
+      aria-label="Adjacent projects"
+    >
+      {
+        previous ? (
+          <a href={`/projects/${previous.data.slug}/`}>
+            <>
+              <span>Previous</span>
+              <strong>{previous.data.name}</strong>
+            </>
+          </a>
+        ) : (
+          <span />
+        )
+      }
+      {
+        next ? (
+          <a href={`/projects/${next.data.slug}/`}>
+            <>
+              <span>Next</span>
+              <strong>{next.data.name}</strong>
+            </>
+          </a>
+        ) : (
+          <a href="/projects/">
+            <>
+              <span>Index</span>
+              <strong>All projects</strong>
+            </>
+          </a>
+        )
+      }
+    </nav>
+  </article>
+</BaseLayout>

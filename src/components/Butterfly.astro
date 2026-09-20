@@ -1,0 +1,81 @@
+<figure class="butterfly-detail" data-butterfly data-photo-entrance="butterfly">
+  <div class="butterfly-flight-mask">
+    <div class="photo-flight">
+      <svg
+        viewBox="220 150 190 165"
+        width="190"
+        height="165"
+        role="img"
+        aria-labelledby="butterfly-title"
+      >
+        <title id="butterfly-title">
+          A real Lange’s metalmark butterfly, photographed by the U.S. Fish and
+          Wildlife Service
+        </title>
+        <defs>
+          <clipPath id="butterfly-left"
+            ><path
+              d="M330 244 L306 239 L277 234 L246 230 L229 232 Q227 248 241 258 L254 267 L289 258 L309 250 L291 261 L277 270 Q266 286 277 296 Q295 312 318 291 L332 270 Z"
+            ></path></clipPath
+          >
+          <clipPath id="butterfly-right"
+            ><path
+              d="M330 239 L344 220 L366 190 L382 169 L391 161 Q401 178 398 198 L388 216 L356 233 L370 228 L390 233 Q402 244 391 264 L373 276 L348 287 L337 264 Z"
+            ></path></clipPath
+          >
+          <clipPath id="butterfly-body"
+            ><path
+              d="M319 230 L328 232 L336 245 L341 264 L347 284 L345 300 L336 299 L330 282 L325 264 L323 247 Z M326 238 L308 212 L311 211 L330 238 Z M327 237 L325 206 L328 207 L331 239Z"
+            ></path></clipPath
+          >
+        </defs>
+        <g class="butterfly-wing butterfly-wing--left"
+          ><image
+            href="/images/butterfly.webp"
+            width="800"
+            height="550.5"
+            clip-path="url(#butterfly-left)"
+          /></g
+        >
+        <g class="butterfly-wing butterfly-wing--right"
+          ><image
+            href="/images/butterfly.webp"
+            width="800"
+            height="550.5"
+            clip-path="url(#butterfly-right)"
+          /></g
+        >
+        <image
+          href="/images/butterfly.webp"
+          width="800"
+          height="550.5"
+          clip-path="url(#butterfly-body)"
+        />
+      </svg>
+    </div>
+    <button
+      type="button"
+      class="butterfly-flutter"
+      data-butterfly-flutter
+      aria-label="Flutter butterfly wings twice"
+      hidden></button>
+  </div>
+  <figcaption>
+    <a
+      data-photo-credit
+      href="https://commons.wikimedia.org/wiki/File:Dorsal_view_of_an_endangered_lange_metalmark_butterfly.jpg"
+      >Lange’s metalmark · USFWS</a
+    ><button
+      type="button"
+      data-butterfly-toggle
+      aria-label="Pause butterfly animation"
+      hidden><span aria-hidden="true">Ⅱ</span></button
+    >
+  </figcaption>
+</figure>
+<script>
+  import { initPhotoEntrances } from "@/scripts/photo-entrance";
+  import { initButterflies } from "@/scripts/butterfly-motion";
+  initPhotoEntrances();
+  initButterflies();
+</script>
