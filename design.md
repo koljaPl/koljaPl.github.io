@@ -1,4 +1,4 @@
-# Nicklas Pluhin — Personal Website Design System
+# Nicklas Plugin — Personal Website Design System
 
 ## Direction
 
@@ -415,7 +415,7 @@ Behavior:
 
 Left:
 
-**Nicklas Pluhin**
+**Nicklas Plugin**
 
 No large standalone logo is necessary.
 
@@ -463,7 +463,7 @@ The hero should answer within a few seconds:
 
 Primary identity:
 
-**Nicklas Pluhin**
+**Nicklas Plugin**
 
 Supporting themes:
 
@@ -1058,7 +1058,7 @@ Footer should be compact.
 
 Include:
 
-* Nicklas Pluhin
+* Nicklas Plugin
 * useful navigation
 * social links
 * copyright/current year when appropriate

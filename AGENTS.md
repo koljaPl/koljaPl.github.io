@@ -2,7 +2,7 @@
 
 ## Project Mission
 
-Build a production-quality personal website for **Nicklas Pluhin**.
+Build a production-quality personal website for **Nicklas Plugin\**.
 
 The website is primarily a personal-brand website. Its purpose is to let people quickly understand:
 
@@ -322,7 +322,7 @@ Do not add Writing in version 1 just to fill space.
 
 The hero must immediately establish the identity:
 
-**Nicklas Pluhin**
+**Nicklas Plugin\**
 
 The supporting hierarchy should communicate:
 
