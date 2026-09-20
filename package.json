@@ -1,0 +1,52 @@
+{
+  "name": "nicklas-pluhin-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@11.24.0",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "sync:github": "tsx scripts/sync-github.ts",
+    "prebuild": "tsx scripts/sync-github.ts && tsx scripts/sync-accounts.ts && pnpm sync:evidence && pnpm sync:videos && pnpm sync:activity",
+    "build": "astro build",
+    "build:static": "astro build",
+    "check": "astro check",
+    "preview": "astro preview --host 127.0.0.1",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test:unit": "tsx --test tests/unit/*.test.ts",
+    "test:e2e": "playwright test --project=chromium",
+    "test:visual": "playwright test --project=visual",
+    "lighthouse": "lhci autorun",
+    "generate:assets": "node scripts/generate-brand-assets.mjs",
+    "validate": "corepack pnpm format:check && corepack pnpm test:unit && corepack pnpm check && corepack pnpm build && corepack pnpm test:e2e && corepack pnpm lighthouse",
+    "sync:accounts": "tsx scripts/sync-accounts.ts",
+    "sync:evidence": "node --import tsx scripts/sync-evidence.ts",
+    "sync:videos": "node --import tsx scripts/sync-videos.ts",
+    "sync:activity": "node --import tsx scripts/sync-activity.ts"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.3",
+    "@fontsource-variable/instrument-sans": "^5.3.0",
+    "@fontsource/ibm-plex-mono": "^5.3.0",
+    "astro": "^7.2.9",
+    "sharp": "^0.35.4",
+    "three": "^0.186.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "@axe-core/playwright": "^4.13.0",
+    "@lhci/cli": "^0.15.1",
+    "@playwright/test": "^1.62.1",
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/node": "^26.4.0",
+    "@types/three": "^0.186.0",
+    "cheerio": "^1.2.0",
+    "prettier": "^3.9.6",
+    "prettier-plugin-astro": "^0.14.1",
+    "tailwindcss": "^4.3.3",
+    "tsx": "^4.23.13",
+    "typescript": "^6.0.3"
+  }
+}

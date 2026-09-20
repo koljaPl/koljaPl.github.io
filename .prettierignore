@@ -1,0 +1,12 @@
+dist/
+.astro/
+node_modules/
+playwright-report/
+test-results/
+artifacts/
+.lighthouseci/
+src/data/generated/github.json
+AGENTS.md
+design.md
+README.md
+LICENSE
