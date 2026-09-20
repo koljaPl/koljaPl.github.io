@@ -1,0 +1,138 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - src/data/generated/github.json
+      - src/data/generated/accounts.json
+      - src/data/generated/evidence.json
+      - src/data/generated/videos.json
+      - src/data/generated/activity.json
+  workflow_dispatch:
+  schedule:
+    - cron: "17 3 * * *"
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+
+      - name: Install dependencies
+        run: |
+          corepack enable
+          corepack pnpm install --frozen-lockfile
+
+      - name: Run unit tests
+        run: corepack pnpm test:unit
+
+      - name: Run Astro and TypeScript checks
+        run: corepack pnpm check
+
+  refresh_metadata:
+    needs: quality
+    runs-on: ubuntu-latest
+    outputs:
+      source_sha: ${{ steps.source.outputs.sha }}
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+          ref: ${{ github.sha }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+
+      - name: Install dependencies
+        run: |
+          corepack enable
+          corepack pnpm install --frozen-lockfile
+
+      - name: Refresh GitHub metadata
+        if: github.ref_name == github.event.repository.default_branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: corepack pnpm sync:github
+
+      - name: Refresh account snapshots
+        if: github.ref_name == github.event.repository.default_branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: |
+          corepack pnpm sync:accounts
+          corepack pnpm sync:evidence
+          corepack pnpm sync:videos
+          corepack pnpm sync:activity
+
+      - name: Persist refreshed metadata
+        if: github.ref_name == github.event.repository.default_branch
+        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if git diff --quiet -- src/data/generated/github.json src/data/generated/accounts.json src/data/generated/evidence.json src/data/generated/videos.json src/data/generated/activity.json; then
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/generated/github.json src/data/generated/accounts.json src/data/generated/evidence.json src/data/generated/videos.json src/data/generated/activity.json
+          git commit -m "chore: refresh public metadata"
+          git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "HEAD:${{ github.event.repository.default_branch }}"
+
+      - name: Record validated source revision
+        id: source
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+  build:
+    needs: refresh_metadata
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+          ref: ${{ needs.refresh_metadata.outputs.source_sha }}
+
+      - name: Build and upload Pages artifact
+        id: astro
+        uses: withastro/action@v6
+        with:
+          build-cmd: pnpm run build:static
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
