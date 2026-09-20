@@ -302,17 +302,17 @@
       }
     },
     "koljaPl/koljaPl.github.io": {
-      "revision": "e7bd2fd273d9393d8fb102c537d6ed61dd47063f",
+      "revision": "bb327091f99d72aae6f175995f1ac8f8f185c1b6",
       "defaultBranch": "main",
       "counter": "cloc 2.10",
       "commits": {
-        "value": 1,
-        "observedAt": "2026-09-17T05:28:48.737Z",
+        "value": 9,
+        "observedAt": "2026-09-20T18:46:45.908Z",
         "scope": "All commits reachable from this default-branch revision, including merges and all authors."
       },
       "code": {
-        "value": 0,
-        "observedAt": "2026-09-17T05:28:48.737Z",
+        "value": 26302,
+        "observedAt": "2026-09-20T18:46:45.908Z",
         "scope": "Physical source lines counted in each physical file, including native Astro components, tests, examples and parsed notebook code cells; excluding blanks, comments, dependencies, generated files, documentation and notebook outputs."
       }
     },
@@ -517,12 +517,12 @@
       "counter": "cloc 2.10",
       "commits": {
         "value": 0,
-        "observedAt": "2026-09-20T12:27:36.582Z",
+        "observedAt": "2026-09-20T18:46:46.316Z",
         "scope": "Empty public repository; no branch commits."
       },
       "code": {
         "value": 0,
-        "observedAt": "2026-09-20T12:27:36.582Z",
+        "observedAt": "2026-09-20T18:46:46.316Z",
         "scope": "Empty public repository; no source files."
       }
     }
@@ -530,17 +530,17 @@
   "accounts": {
     "github-koljapl": {
       "monthlyCommits": {
-        "value": 272,
-        "observedAt": "2026-09-20T12:27:52.084Z",
+        "value": 267,
+        "observedAt": "2026-09-20T18:46:47.874Z",
         "scope": "Commits attributed by GitHub to koljaPl in the preceding 30 days, across owned public non-fork default branches; commit date is the committer date."
       },
       "code": {
-        "value": 71558,
-        "observedAt": "2026-09-20T12:27:52.084Z",
+        "value": 97860,
+        "observedAt": "2026-09-20T18:46:47.874Z",
         "scope": "Owned public non-fork repositories, default branches; all authors' repository source, not individually authored lines."
       },
-      "windowStart": "2026-08-21T12:27:52.084Z",
-      "windowEnd": "2026-09-20T12:27:52.084Z",
+      "windowStart": "2026-08-21T18:46:47.874Z",
+      "windowEnd": "2026-09-20T18:46:47.874Z",
       "repositories": [
         "koljaPl/2-squares-collapse",
         "koljaPl/AI-Document-Intake-Automation",
@@ -599,7 +599,7 @@
         "koljaPl/FastAPI-Task-Management-API": "fd56073fa8b0372e0a779f0a250de196d20688a5",
         "koljaPl/gis": "4b1fde96de08943e2ab4e60a5ff65089248e9b87",
         "koljaPl/koljaPl": "03a7606bddff284f690e83b391f3d82375b80760",
-        "koljaPl/koljaPl.github.io": "e7bd2fd273d9393d8fb102c537d6ed61dd47063f",
+        "koljaPl/koljaPl.github.io": "bb327091f99d72aae6f175995f1ac8f8f185c1b6",
         "koljaPl/kounty": "358a02331b4d192b06d33e29f77e4ec498bf6fe9",
         "koljaPl/ml-problems": "d5f240de9547bd204504393dc21827362136580e",
         "koljaPl/mod": null,
