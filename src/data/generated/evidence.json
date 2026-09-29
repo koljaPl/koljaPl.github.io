@@ -302,17 +302,17 @@
       }
     },
     "koljaPl/koljaPl.github.io": {
-      "revision": "0e082515380da1b1f5dc2eed42d327840a7b2d51",
+      "revision": "630e6a0bd3c9082b96322a221e337e41f1f3c992",
       "defaultBranch": "main",
       "counter": "cloc 2.10",
       "commits": {
-        "value": 17,
-        "observedAt": "2026-09-28T09:47:46.157Z",
+        "value": 18,
+        "observedAt": "2026-09-29T09:50:30.779Z",
         "scope": "All commits reachable from this default-branch revision, including merges and all authors."
       },
       "code": {
         "value": 26302,
-        "observedAt": "2026-09-28T09:47:46.157Z",
+        "observedAt": "2026-09-29T09:50:30.779Z",
         "scope": "Physical source lines counted in each physical file, including native Astro components, tests, examples and parsed notebook code cells; excluding blanks, comments, dependencies, generated files, documentation and notebook outputs."
       }
     },
@@ -377,17 +377,17 @@
       }
     },
     "koljaPl/neetcode-submissions": {
-      "revision": "66fa9d7cebf5232b4a925e1183c0bd8be4f1b7f5",
+      "revision": "9f483bec9eb43780ce8174444fa6fef7bdb9b3fc",
       "defaultBranch": "main",
       "counter": "cloc 2.10",
       "commits": {
-        "value": 263,
-        "observedAt": "2026-09-22T08:33:31.157Z",
+        "value": 264,
+        "observedAt": "2026-09-29T09:50:33.904Z",
         "scope": "All commits reachable from this default-branch revision, including merges and all authors."
       },
       "code": {
-        "value": 7302,
-        "observedAt": "2026-09-22T08:33:31.157Z",
+        "value": 7316,
+        "observedAt": "2026-09-29T09:50:33.904Z",
         "scope": "Physical source lines counted in each physical file, including native Astro components, tests, examples and parsed notebook code cells; excluding blanks, comments, dependencies, generated files, documentation and notebook outputs."
       }
     },
@@ -517,12 +517,12 @@
       "counter": "cloc 2.10",
       "commits": {
         "value": 0,
-        "observedAt": "2026-09-28T09:47:46.973Z",
+        "observedAt": "2026-09-29T09:50:31.827Z",
         "scope": "Empty public repository; no branch commits."
       },
       "code": {
         "value": 0,
-        "observedAt": "2026-09-28T09:47:46.973Z",
+        "observedAt": "2026-09-29T09:50:31.827Z",
         "scope": "Empty public repository; no source files."
       }
     },
@@ -545,17 +545,17 @@
   "accounts": {
     "github-koljapl": {
       "monthlyCommits": {
-        "value": 185,
-        "observedAt": "2026-09-28T09:47:50.294Z",
+        "value": 175,
+        "observedAt": "2026-09-29T09:50:36.876Z",
         "scope": "Commits attributed by GitHub to koljaPl in the preceding 30 days, across owned public non-fork default branches; commit date is the committer date."
       },
       "code": {
-        "value": 98695,
-        "observedAt": "2026-09-28T09:47:50.294Z",
+        "value": 98709,
+        "observedAt": "2026-09-29T09:50:36.876Z",
         "scope": "Owned public non-fork repositories, default branches; all authors' repository source, not individually authored lines."
       },
-      "windowStart": "2026-08-29T09:47:50.294Z",
-      "windowEnd": "2026-09-28T09:47:50.294Z",
+      "windowStart": "2026-08-30T09:50:36.876Z",
+      "windowEnd": "2026-09-29T09:50:36.876Z",
       "repositories": [
         "koljaPl/2-squares-collapse",
         "koljaPl/AI-Document-Intake-Automation",
@@ -615,13 +615,13 @@
         "koljaPl/FastAPI-Task-Management-API": "fd56073fa8b0372e0a779f0a250de196d20688a5",
         "koljaPl/gis": "4b1fde96de08943e2ab4e60a5ff65089248e9b87",
         "koljaPl/koljaPl": "03a7606bddff284f690e83b391f3d82375b80760",
-        "koljaPl/koljaPl.github.io": "0e082515380da1b1f5dc2eed42d327840a7b2d51",
+        "koljaPl/koljaPl.github.io": "630e6a0bd3c9082b96322a221e337e41f1f3c992",
         "koljaPl/kounty": "358a02331b4d192b06d33e29f77e4ec498bf6fe9",
         "koljaPl/ml-problems": "d5f240de9547bd204504393dc21827362136580e",
         "koljaPl/mod": null,
         "koljaPl/my-cool-website": "e1ceabeb66fc2602905b479303a8df5d397a30d3",
         "koljaPl/My-WEBSite": "024bf896c9abfd08cfe8d68c253ec49482828f81",
-        "koljaPl/neetcode-submissions": "66fa9d7cebf5232b4a925e1183c0bd8be4f1b7f5",
+        "koljaPl/neetcode-submissions": "9f483bec9eb43780ce8174444fa6fef7bdb9b3fc",
         "koljaPl/pseudo": "04e6ff362b227795327832acaa1380c496e0706b",
         "koljaPl/pseudo-programming-language": "c19a59ca845fd57338c0dd36866abfc413d0ba43",
         "koljaPl/robot": "25a95970af274f836c63c6ef60fd5595c90e01fa",
