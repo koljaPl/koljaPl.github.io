@@ -302,17 +302,17 @@
       }
     },
     "koljaPl/koljaPl.github.io": {
-      "revision": "09635e33b8dc75bd7bd3330ad0f00f01f66c5548",
+      "revision": "d4bc3f4305a9b666c0a5e6dce2eca94b8042bffa",
       "defaultBranch": "main",
       "counter": "cloc 2.10",
       "commits": {
-        "value": 24,
-        "observedAt": "2026-10-05T10:26:36.569Z",
+        "value": 25,
+        "observedAt": "2026-10-06T10:18:00.147Z",
         "scope": "All commits reachable from this default-branch revision, including merges and all authors."
       },
       "code": {
         "value": 26302,
-        "observedAt": "2026-10-05T10:26:36.569Z",
+        "observedAt": "2026-10-06T10:18:00.147Z",
         "scope": "Physical source lines counted in each physical file, including native Astro components, tests, examples and parsed notebook code cells; excluding blanks, comments, dependencies, generated files, documentation and notebook outputs."
       }
     },
@@ -332,17 +332,17 @@
       }
     },
     "koljaPl/ml-problems": {
-      "revision": "e9f026ee7b00fdd567e0184a1b8879c3c9fa8f1e",
+      "revision": "61388676f1aa4ab4ad3769cf2381834ece768101",
       "defaultBranch": "main",
       "counter": "cloc 2.10",
       "commits": {
-        "value": 20,
-        "observedAt": "2026-10-02T09:46:38.847Z",
+        "value": 25,
+        "observedAt": "2026-10-06T10:18:01.142Z",
         "scope": "All commits reachable from this default-branch revision, including merges and all authors."
       },
       "code": {
-        "value": 611,
-        "observedAt": "2026-10-02T09:46:38.847Z",
+        "value": 939,
+        "observedAt": "2026-10-06T10:18:01.142Z",
         "scope": "Physical source lines counted in each physical file, including native Astro components, tests, examples and parsed notebook code cells; excluding blanks, comments, dependencies, generated files, documentation and notebook outputs."
       }
     },
@@ -517,12 +517,12 @@
       "counter": "cloc 2.10",
       "commits": {
         "value": 0,
-        "observedAt": "2026-10-05T10:26:37.207Z",
+        "observedAt": "2026-10-06T10:18:01.304Z",
         "scope": "Empty public repository; no branch commits."
       },
       "code": {
         "value": 0,
-        "observedAt": "2026-10-05T10:26:37.207Z",
+        "observedAt": "2026-10-06T10:18:01.304Z",
         "scope": "Empty public repository; no source files."
       }
     },
@@ -545,17 +545,17 @@
   "accounts": {
     "github-koljapl": {
       "monthlyCommits": {
-        "value": 157,
-        "observedAt": "2026-10-05T10:26:39.763Z",
+        "value": 154,
+        "observedAt": "2026-10-06T10:18:03.491Z",
         "scope": "Commits attributed by GitHub to koljaPl in the preceding 30 days, across owned public non-fork default branches; commit date is the committer date."
       },
       "code": {
-        "value": 100800,
-        "observedAt": "2026-10-05T10:26:39.763Z",
+        "value": 101128,
+        "observedAt": "2026-10-06T10:18:03.491Z",
         "scope": "Owned public non-fork repositories, default branches; all authors' repository source, not individually authored lines."
       },
-      "windowStart": "2026-09-05T10:26:39.763Z",
-      "windowEnd": "2026-10-05T10:26:39.763Z",
+      "windowStart": "2026-09-06T10:18:03.491Z",
+      "windowEnd": "2026-10-06T10:18:03.491Z",
       "repositories": [
         "koljaPl/2-squares-collapse",
         "koljaPl/AI-Document-Intake-Automation",
@@ -615,9 +615,9 @@
         "koljaPl/FastAPI-Task-Management-API": "fd56073fa8b0372e0a779f0a250de196d20688a5",
         "koljaPl/gis": "4b1fde96de08943e2ab4e60a5ff65089248e9b87",
         "koljaPl/koljaPl": "03a7606bddff284f690e83b391f3d82375b80760",
-        "koljaPl/koljaPl.github.io": "09635e33b8dc75bd7bd3330ad0f00f01f66c5548",
+        "koljaPl/koljaPl.github.io": "d4bc3f4305a9b666c0a5e6dce2eca94b8042bffa",
         "koljaPl/kounty": "358a02331b4d192b06d33e29f77e4ec498bf6fe9",
-        "koljaPl/ml-problems": "e9f026ee7b00fdd567e0184a1b8879c3c9fa8f1e",
+        "koljaPl/ml-problems": "61388676f1aa4ab4ad3769cf2381834ece768101",
         "koljaPl/mod": null,
         "koljaPl/my-cool-website": "e1ceabeb66fc2602905b479303a8df5d397a30d3",
         "koljaPl/My-WEBSite": "024bf896c9abfd08cfe8d68c253ec49482828f81",
