@@ -5,7 +5,7 @@
       "platform": "codeforces",
       "handle": "NiklasPlugin",
       "profileUrl": "https://codeforces.com/profile/NiklasPlugin",
-      "observedAt": "2026-10-26T08:55:15.174Z",
+      "observedAt": "2026-10-27T08:59:44.141Z",
       "metrics": {
         "rating": 2105,
         "maxRating": 2105,
@@ -29,7 +29,7 @@
       "platform": "atcoder",
       "handle": "Nicklas",
       "profileUrl": "https://atcoder.jp/users/Nicklas",
-      "observedAt": "2026-10-26T08:55:16.637Z",
+      "observedAt": "2026-10-27T08:59:45.742Z",
       "metrics": {
         "rating": 1699,
         "maxRating": 1997,
@@ -40,19 +40,19 @@
       "platform": "leetcode",
       "handle": "NicklasPL",
       "profileUrl": "https://leetcode.com/u/NicklasPL/",
-      "observedAt": "2026-10-26T08:55:16.810Z",
+      "observedAt": "2026-10-27T08:59:45.962Z",
       "metrics": {
-        "solved": 1190,
-        "easy": 723,
-        "medium": 348,
-        "hard": 119
+        "solved": 1198,
+        "easy": 724,
+        "medium": 352,
+        "hard": 122
       }
     },
     "github-koljapl": {
       "platform": "github",
       "handle": "koljaPl",
       "profileUrl": "https://github.com/koljaPl",
-      "observedAt": "2026-10-26T08:55:17.961Z",
+      "observedAt": "2026-10-27T08:59:47.344Z",
       "metrics": {
         "followers": 4,
         "repositories": 36,
