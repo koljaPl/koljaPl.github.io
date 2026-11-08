@@ -5,13 +5,13 @@
       "platform": "codeforces",
       "handle": "NiklasPlugin",
       "profileUrl": "https://codeforces.com/profile/NiklasPlugin",
-      "observedAt": "2026-11-07T10:07:43.622Z",
+      "observedAt": "2026-11-08T10:22:33.073Z",
       "metrics": {
-        "rating": 2105,
-        "maxRating": 2105,
-        "rank": "master",
-        "solved": 65,
-        "contests": 12
+        "rating": 2403,
+        "maxRating": 2403,
+        "rank": "grandmaster",
+        "solved": 70,
+        "contests": 13
       }
     },
     "eolymp-platino": {
@@ -29,22 +29,22 @@
       "platform": "atcoder",
       "handle": "Nicklas",
       "profileUrl": "https://atcoder.jp/users/Nicklas",
-      "observedAt": "2026-11-07T10:07:45.230Z",
+      "observedAt": "2026-11-08T10:22:34.882Z",
       "metrics": {
-        "rating": 1585,
+        "rating": 1710,
         "maxRating": 1997,
-        "contests": 17
+        "contests": 18
       }
     },
     "leetcode-nicklaspl": {
       "platform": "leetcode",
       "handle": "NicklasPL",
       "profileUrl": "https://leetcode.com/u/NicklasPL/",
-      "observedAt": "2026-11-07T10:07:45.408Z",
+      "observedAt": "2026-11-08T10:22:35.019Z",
       "metrics": {
-        "solved": 1234,
+        "solved": 1238,
         "easy": 724,
-        "medium": 379,
+        "medium": 383,
         "hard": 131
       }
     },
@@ -52,7 +52,7 @@
       "platform": "github",
       "handle": "koljaPl",
       "profileUrl": "https://github.com/koljaPl",
-      "observedAt": "2026-11-07T10:07:46.930Z",
+      "observedAt": "2026-11-08T10:22:36.466Z",
       "metrics": {
         "followers": 4,
         "repositories": 36,
