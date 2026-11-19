@@ -6,14 +6,10 @@
       "handle": "NicklasPL",
       "source": "https://leetcode.com/u/NicklasPL/",
       "metric": "submissions",
-      "observedAt": "2026-11-18T11:41:54.611Z",
-      "start": "2025-11-19",
-      "end": "2026-11-18",
+      "observedAt": "2026-11-19T11:39:42.766Z",
+      "start": "2025-11-20",
+      "end": "2026-11-19",
       "days": [
-        {
-          "date": "2025-11-19",
-          "count": 6
-        },
         {
           "date": "2025-11-20",
           "count": 8
@@ -1469,6 +1465,10 @@
         {
           "date": "2026-11-18",
           "count": 1
+        },
+        {
+          "date": "2026-11-19",
+          "count": 1
         }
       ]
     },
@@ -1477,14 +1477,10 @@
       "handle": "koljaPl",
       "source": "https://github.com/koljaPl",
       "metric": "contributions",
-      "observedAt": "2026-11-18T11:41:54.611Z",
-      "start": "2025-11-19",
-      "end": "2026-11-18",
+      "observedAt": "2026-11-19T11:39:42.766Z",
+      "start": "2025-11-20",
+      "end": "2026-11-19",
       "days": [
-        {
-          "date": "2025-11-19",
-          "count": 3
-        },
         {
           "date": "2025-11-20",
           "count": 3
@@ -2939,6 +2935,10 @@
         },
         {
           "date": "2026-11-18",
+          "count": 0
+        },
+        {
+          "date": "2026-11-19",
           "count": 0
         }
       ]
